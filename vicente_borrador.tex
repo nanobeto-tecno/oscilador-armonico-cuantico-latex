@@ -1,0 +1,432 @@
+\documentclass[11pt,a4paper,spanish]{book}
+\usepackage{estilo_unir-1}
+
+
+
+%---------------------------
+%título del trabajo y autor
+%---------------------------
+\title{Oscilador armónico cuántico (OAC)}
+\author{Nombre y Apellidos}
+\date{diaXXX de mesXXX de 2023}
+\profesor{Rodrigo Gil-Merino y Rubio}
+
+%---------------------------
+%marges
+%---------------------------
+%\usepackage[margin=1.9cm]{geometry}
+%---------------------------
+%---------------------------
+%---------------------------
+%---------------------------
+\begin{document}
+\renewcommand{\listfigurename}{Índice de figuras}
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand{\contentsname}{Índice de contenidos}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla} 
+
+\maketitle
+
+\frontmatter
+\tableofcontents
+\listoffigures %atención, quitar si no hay figuras!!!
+\listoftables %atención, quitar si no hay tablas!!!
+
+\chapter{Resumen}
+Aquí se introducirá un breve resumen en español del trabajo realizado (extensión máxima: 150 palabras). Este resumen debe incluir el objetivo o propósito de la investigación, la metodología, los resultados y las conclusiones (obviamente, todo muy resumido, pero así se sabe de un vistazo lo que se va uno a encontrar a continuación).\\
+
+
+{\bf Palabras clave:} se deben incluir de 3 a 5 palabras claves en español (pueden ser conceptos formados por más de una palabra)
+
+\chapter{Abstract}
+Aquí debe introducirse la versión en {\bf inglés} del Resumen anterior.\\
+
+
+{\bf Keywords:} se deben incluir de 3 a 5 palabras claves en inglés  (pueden ser conceptos formados por más de una palabra)
+
+
+
+
+\mainmatter
+\chapter{Introducción}
+
+El oscilador armónico cuántico (OAC) constituye, junto con el átomo de hidrógeno, el modelo fundamental de la mecánica cuántica. Su importancia trasciende lo pedagógico: es el fundamento físico de las principales plataformas de computación cuántica actuales y la base de los únicos códigos de corrección de errores que han superado experimentalmente el punto de equilibrio. Este trabajo establece las conexiones entre las predicciones históricas del modelo (1900-1963), su validación experimental reciente (2020-2025), y su implementación en arquitecturas de procesamiento cuántico.
+
+\begin{itemize}
+\item Motivación.\\
+\textbf{Identificación del problema:} A pesar de que el oscilador armónico cuántico se encuentar en prácticamente todos los textos de mecánica cuántica, su tratamiento suele enfocarse a ejercicios de aplicación matemática sin establecer conexiones explícitas con las tecnologías cuánticas actuales. Existe una brecha entre la comprensión teórica del modelo y su reconocimiento como fundamento operativo de las plataformas de computación cuántica más avanzadas. Esta desconexión impide apreciar cómo el modelo del OAC sigue siendo la base de los desarrollos experimentales recientes que están transformando la corrección de errores cuánticos.\\
+
+\textbf{Justificación de su importancia:} Comprender con cierto nivel de detalle el oscilador armónico cuántico (OAC) es fundamental para cualquier profesional que trabaje en computación cuántica o física. El OAC no es simplemente un ejercicio didáctico: es el lenguaje operativo de circuit QED \citep{blais2021}, la física subyacente de los modos motacionales en iones atrapados \citep{cirac1995, leibfried2003}, y el espacio de codificación de los códigos bosónicos que han superado el punto de equilibrio en corrección de errores \cite{sivak2023, ni2023, reglade2024}. Entender este modelo proporciona las herramientas conceptuales y matemáticas necesarias para entender literatura técnica especializada, evaluar arquitecturas de procesadores cuánticos, y contribuir al diseño de nuevas implementaciones.\\
+
+\textbf{Contribución esperada:} Este trabajo busca establecer una base conceptual sólida y articulada del oscilador armónico cuántico que sirva como plataforma para estudios avanzados en la maestría y para aplicaciones prácticas en computación cuántica. Específicamente, pretende: \textbf{(1)} conectar los conceptos teóricos con su realización experimental moderna; \textbf{(2)} proporcionar un catálogo actualizado de referencias primarias que permita profundizar en aspectos específicos según necesidades futuras; \textbf{(3)} demostrar que el OAC no es solo historia de la física, sino ingeniería cuántica contemporánea, permitiendo comprender desarrollos futuros; y \textbf{(4)} establecer un vocabulario técnico base (operadores escalera, estados coherentes, función de Wigner, códigos bosónicos).\\
+
+Comprender los nuevos desarrollos que se han dado en el período 2020-2025, requiere entender y dominar el OAC como fundamento, objetivo central de este trabajo. Este periodo ha marcado una transición con desarrollos como: los códigos bosónicos han superado el punto de equilibrio en corrección de errores \cite{sivak2023, ni2023}, cat qubits han alcanzado tiempos de bit-flip superiores a 10 segundos \cite{reglade2024}, sistemas optomecánicos han enfriado osciladores a 0.04 fonones desde temperatura ambiente \cite{dania2025} y creado estados gato en resonadores de 16 microgramos \cite{bild2023}, y resonadores fonónicos han verificado directamente la cuantización de energía \cite{arrangoiz2019, hou2024}.\\ 
+
+\item Planteamiento del Trabajo\\
+Esta actividad presenta el oscilador armónico cuántico (OAC) como fundamento teórico y tecnológico de las arquitecturas de computación cuántica actuales, estableciendo conexiones entre predicciones históricas (1900-1963), validación experimental (2020-2025), e implementación en plataformas de procesamiento cuántico. \\
+
+El análisis traza la evolución desde Planck \citep{planck1901} hasta Glauber \citep{glauber1963a}, explicando algunos fundamentos matemáticos a nivel básico, catalogando validaciones experimentales 2020-2025 en circuitos superconductores \citep{sivak2023, ni2023, reglade2024}, iones atrapados \citep{hou2024}, sistemas optomecánicos \citep{dania2025, bild2023}, y resonadores fonónicos \citep{arrangoiz2019, wollack2022}. Se establecen conexiones directas con computación cuántica mediante transmons \citep{koch2007, blais2021}, iones atrapados \citep{cirac1995, bruzewicz2019}, códigos bosónicos \citep{gkp2001, ofek2016, brady2024}, y CVQC fotónica \citep{braunstein2005, madsen2022}, proyectando la hoja de ruta tecnológica 2025-2035 con arquitecturas emergentes y desafíos críticos \citep{liu2024, eickbusch2024, chamberland2022}.
+
+\item Estructura del Trabajo\\
+La primera sección muestra el progreso histórico desde los orígenes clásicos \citep{hooke1678, lagrange1788, hamilton1834} hasta las formulaciones cuánticas completas de Planck \citep{planck1901}, Einstein \citep{einstein1907}, Heisenberg \citep{heisenberg1925}, Schrödinger \citep{schrodinger1926b}, Dirac \citep{dirac1930}, y Glauber \citep{glauber1963a}, mostrando cómo el OAC sirvió como base para la construcción de los conceptos centrales de la mecánica cuántica.\\
+
+La segunda sección presenta el formalismo matemático: hamiltoniano y relaciones de conmutación, espectro de energía cuantizado, operadores escalera y estructura algebraica bosónica, estados coherentes, y función de Wigner. Este tratamiento enfatiza comprensión física con referencias a textos fundamentales \citep{griffiths2018, sakurai2020, cohentannoudji2019, gerry2004, nielsen2010}, definiendo el vocabulario téncico que reaparecerá en secciones posteriores.\\
+
+La tercera sección documenta realizaciones experimentales 2020-2025 organizadas por plataforma: circuitos superconductores superando break-even \citep{sivak2023, ni2023, reglade2024, putterman2025}, iones atrapados demostrando interferencia de fonones \citep{hou2024, burd2024, park2024}, sistemas optomecánicos alcanzando régimen cuántico macroscópico \citep{dania2025, bild2023, piotrowski2023}, y resonadores fonónicos verificando cuantización \citep{arrangoiz2019, wollack2022, qiao2023}. Esta sección muestra que el OAC no es una abstracción teórica sino un componente tecnológico funcional.\\
+
+La cuarta sección establece conexiones directas con computación cuántica mediante las aplicaciones del OCA: transmons como OAC anarmónicos en circuit QED \citep{koch2007, blais2021, krantz2019}, iones atrapados explotando modos motacionales como bus cuántico \citep{cirac1995, molmer1999, bruzewicz2019}, códigos bosónicos (cat, GKP, binomiales) para corrección de errores hardware-efficient \citep{gkp2001, ofek2016, michael2016, brady2024}, CVQC fotónica \citep{braunstein2005, madsen2022, bourassa2021}, y Kerr-cat qubits \citep{grimm2020, hajr2024}.\\ 
+
+La quinta sección proyecta la hoja de ruta 2025-2035 en tres fases temporales, analiza arquitecturas emergentes \citep{liu2024, eickbusch2024, chamberland2022}, e identifica cinco desafíos tecnológicos críticos que determinan la viabilidad de estas proyecciones.
+
+
+\end{itemize}
+
+
+
+
+\chapter{Contexto y estado del Oscilador armónico cuántico}\label{contexto}
+
+El oscilador armónico cuántico (OAC) es, junto con el átomo de hidrógeno, el modelo más importante de toda la mecánica cuántica. Su relevancia trasciende lo pedagógico: constituye el fundamento físico de las principales plataformas de computación cuántica actuales, desde qubits superconductores hasta iones atrapados y computación cuántica fotónica.
+El oscilador armónico cuántico es un modelo fundamental que describe partículas en un potencial parabólico con energía cuantizada (valores discretos). Sus características principales incluyen:
+\begin{itemize}
+	\item \textbf{Niveles energéticos:} Igualmente espaciados, con separación constante (hv)
+	\item \textbf{Energía de punto cero:} El estado base tiene energía no nula debido a fluctuaciones cuánticas
+	\item \textbf{Funciones de onda:} Estados estacionarios descritos por funciones de Hermite con factor gaussiano
+	\item \textbf{Principio de incertidumbre:} Posición y momento están sujetos a las restricciones de Heisenberg
+\end{itemize}
+
+Este modelo es esencial para comprender vibraciones atómicas en cristales, óptica cuántica y teoría cuántica de campos, siendo una base fundamental para el estudio de sistemas cuánticos más complejos.
+
+
+\chapter{Objetivos}
+
+\section {Objetivo General}
+Presentar el oscilador armónico cuántico (OAC) como fundamento teórico y tecnológico de las arquitecturas de computación cuántica actuales, estableciendo conexiones explícitas entre las predicciones del modelo (1900-1963), su validación experimental reciente (2020-2025), y su implementación en plataformas de procesamiento cuántico.
+
+\section {Objetivos específicos}
+
+\begin{itemize}
+	\item Trazar la evolución histórica y teórica del OAC desde la cuantización de Planck (1900) hasta los estados coherentes de Glauber (1963), explicando los fundamentos matemáticos básicos (hamiltoniano, operadores escalera, función de Wigner).
+	\item Catalogar las validaciones experimentales del OAC en plataformas diversas (circuitos superconductores, iones atrapados, sistemas optomecánicos, resonadores fonónicos) durante 2020-2025, verificando predicciones como cuantización de energía, energía de punto cero y negatividad de función de Wigner.
+	\item Proyectar la hoja de ruta tecnológica 2025-2035 para procesadores cuánticos basados en osciladores, argumentando que la concatenación de códigos bosónicos con códigos discretos constituye la vía más prometedora hacia computación cuántica tolerante a fallos escalable.
+\end{itemize} 
+
+
+
+\chapter{Desarrollo del Trabajo}
+
+
+\section{Desarrollo histórico del oscilador armónico cuántico}
+
+La historia del oscilador armónico cuántico (OAC) es inseparable de la historia de la mecánica cuántica misma. Desde la cuantización ad hoc de Planck en 1900 hasta el formalismo riguroso de Glauber en 1963, este modelo sirvió como base para la construcción y definición de los conceptos centrales de la teoría: cuantización de energía, energía de punto cero, operadores no conmutativos, y estados coherentes. \\
+
+Cada avance conceptual —la mecánica matricial de Heisenberg, la ecuación de onda de Schrödinger, el método algebraico de Dirac— se validó primero resolviendo el oscilador armónico cuántico. Esta sección traza ese recorrido, identificando los autores y teorías que transformaron un modelo clásico del siglo XVII en el fundamento de las tecnologías cuánticas del siglo XXI.
+
+\subsection*{Orígenes clásicos}
+El concepto de oscilador armónico tiene raíces en la mecánica clásica del siglo XVII. Robert Hooke formuló su ley de fuerza restauradora lineal (Ut tensio, sic vis — "como la extensión, así la fuerza") en su obra \cite{hooke1678}. La formalización matemática se completó con la mecánica analítica de Lagrange \citep{lagrange1788} y Hamilton \citep{hamilton1834, hamilton1835} , estableciendo el hamiltoniano clásico $H = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2$ como modelo universal para oscilaciones pequeñas alrededor de cualquier punto de equilibrio estable.\\
+
+Para finales del siglo XIX, el oscilador armónico clásico era el paradigma central de sistemas oscilatorios en mecánica, acústica y electrodinámica. Su importancia radicaba en que cualquier potencial V(x) cerca de un mínimo puede aproximarse como cuadrático mediante una expansión de Taylor~\ref{sec:taylor} , haciendo del oscilador armónico una aproximación universal.
+
+\subsection*{La cuantización de Planck (1900)}
+La transición de lo clásico a lo cuántico surgió del \textbf{problema de la radiación del cuerpo negro}. Las leyes de \cite{wien1896} y \cite{rayleigh1900, jeans1905} fallaban en diferentes rangos espectrales, y la segunda predecía una divergencia ultravioleta catastrófica. Max Planck presentó  el 19 de octubre de 1900 ante la Sociedad Alemana de Física \citep{planck1901} su derivación teórica, que requería que la energía de estos osciladores estuviera restringida a múltiplos discretos de una unidad fundamental: $E = n\hbar\nu$. El 14 de diciembre de 1900, Planck había llegado a una conclusión algo radical: los osciladores que comprenden el cuerpo negro y que re-emiten la energía radiante que incide sobre ellos no pueden absorber esta energía de forma continua, tan solo en cantidades discretas, o cuantos de energía.\\
+
+\textbf{Significado:} Los resonadores de Planck eran precisamente osciladores armónicos con energía cuantizada. La introducción de la constante $h$ marcó el nacimiento de la teoría cuántica, aunque Planck mismo fue cauteloso sobre la interpretación física de la cuantización.
+
+
+
+\subsection*{Einstein y el calor específico de los sólidos (1907)}
+Pendiente
+
+\subsection*{Heisenberg y la mecánica matricial (1925)}
+Pendiente
+
+
+\subsection*{Schrödinger y la mecánica ondulatoria (1926)}
+Pendiente
+
+\subsection*{El método algebraico de Dirac: operadores de creación y aniquilación (1930)}
+Pendiente
+
+
+\subsection*{Los estados coherentes de Glauber (1963)}
+Pendiente
+
+
+\section{Fundamentos matemáticos y físicos}
+
+El formalismo matemático del oscilador armónico cuántico combina elegancia teórica con utilidad práctica inmediata. Esta sección presenta los cinco pilares conceptuales del modelo: 
+
+\begin{itemize}
+	\item El hamiltoniano cuantizado.
+	\item Los niveles de energía discretos.
+	\item Los operadores de creación y aniquilación.
+	\item Los estados coherentes.
+	\item La representación en espacio de fase mediante la función de Wigner.
+\end{itemize}
+
+El tratamiento de estos fundamentes es a un nivel básico, enfatizando la comprensión física de cada elemento y sus implicaciones para computación cuántica, sin profundizar en derivaciones matemáticas exhaustivas. Cada concepto se acompaña de referencias específicas a textos de referencia para quien desee mayor rigor. El objetivo es establecer el vocabulario y las herramientas que reaparecerán constantemente en las secciones posteriores: experimentales y de aplicaciones.
+
+\subsection*{El hamiltoniano del oscilador armónico cuántico}
+Pendiente
+
+\subsection*{Niveles de energía cuantizados}
+Pendiente
+
+\subsection*{Operadores escalera (creación y aniquilación)}
+Pendiente
+
+\subsection*{Estados coherentes}
+Pendiente
+
+\subsection*{Representación en el espacio de fase}
+Pendiente
+
+
+\section{Realizaciones experimentales modernas (2020-2025)}
+El período 2020-2025 marca una transición cualitativa en la física del oscilador armónico cuántico: de validar predicciones fundamentales a implementarlo como componente tecnológico funcional.\\
+
+Esta sección documenta los experimentos más significativos organizados por plataforma física (circuitos superconductores, iones atrapados, sistemas optomecánicos, resonadores fonónicos), mostrando cómo cada predicción teórica de la Sección 4.2 —cuantización de energía, energía de punto cero, estados coherentes, negatividad de función de Wigner— ha sido verificada experimentalmente con alta precisión. 
+Los hitos incluyen códigos bosónicos superando el punto de equilibrio (break-even) en corrección de errores, estados gato de Schrödinger en osciladores mecánicos macroscópicos, y enfriamiento de nanopartículas levitadas a 0.04 fonones desde temperatura ambiente. Cada experimento citado utiliza tecnología desarrollada específicamente en los últimos cinco años, con referencias completas a papers de Nature, Science y Physical Review publicados entre 2022-2025.
+
+\subsection*{Circuitos superconductores: el OAC como qubit lógico}
+Pendiente
+
+
+\subsection*{Iones atrapados: modos motacionales como OAC de libro de texto}
+Pendiente
+
+
+\subsection*{Sistemas optomecánicos: OAC macroscópicos en el régimen cuántico}
+Pendiente
+
+\subsection*{Sistemas fonónicos: computación cuántica acústica}
+Pendiente
+
+
+\section{Aplicaciones en computación cuántica}
+
+El oscilador armónico cuántico no es un componente auxiliar de la computación cuántica: es su infraestructura fundamental. Esta sección explora de una manera general, las implementaciones físicas del OAC en la computación cuántica. Más allá de estas implementaciones, esta sección analiza cómo el espacio de Hilbert infinito-dimensional del OAC se explota activamente en códigos bosónicos (cat, GKP, binomiales) para corrección de errores hardware-efficient, demostrando que las únicas arquitecturas que han superado experimentalmente el punto de equilibrio son precisamente aquellas que codifican qubits lógicos dentro de osciladores individuales. El OAC pasa así de abstracción matemática a estrategia de protección de información cuántica.
+
+
+\subsection*{Definir hasta qué nivel de detalle llegamos, ya que es un tema complejo que sobrepasa mi concimiento actual}
+Pendiente
+
+\section{Perspectivas futuras y desafíos (2025-2035)}
+Los códigos bosónicos se posicionan como la estrategia líder para corrección de errores cuánticos escalable, habiendo superado experimentalmente el punto de equilibrio donde otros enfoques aún no lo logran. Esta sección proyecta la evolución esperada del campo mediante una hoja de ruta en tres fases: demostración de módulos tolerantes a fallos a pequeña escala (2025-2027), integración de decenas de qubits bosónicos corregidos en procesadores (2027-2030), y despliegue de computadores cuánticos tolerantes a fallos a gran escala usando osciladores como primera capa de corrección (2030-2035). 
+
+Finalmente, se identifican los cinco desafíos tecnológicos críticos que determinan si esta hoja de ruta se materializa: coherencia del oscilador, errores de ancilla, control multimodal escalable, calidad de estados GKP, e integración de componentes.
+
+\subsection*{Los códigos bosónicos como estrategia líder de corrección de errores}
+Pendiente
+
+\subsection*{Arquitecturas emergentes basadas en osciladores}
+Pendiente
+
+\subsection*{Desafíos tecnológicos principales}
+Pendiente
+
+
+\chapter{Conclusiones}
+
+Las Conclusiones es otra parte muy IMPORTANTE de la memoria. Deben ser muy clara. Si es posible se pueden itemizar o, mejor, poner un párrafo por idea con un pequeño título ilustrativo.
+
+\addcontentsline{toc}{chapter}{Bibliografía}
+\begin{thebibliography}{a}
+
+%% ORÍGENES CLÁSICOS Y PRE-CUÁNTICOS
+
+\bibitem[Hooke(1678)]{hooke1678} Hooke, R. (1678) \emph{Lectures de Potentia Restitutiva, or of Spring. Explaining the Power of Springing Bodies}. John Martyn, London.
+
+\bibitem[Lagrange(1788)]{lagrange1788} Lagrange, J.L. (1788) \emph{Mécanique analytique}. Desaint, Paris.
+
+\bibitem[Hamilton(1834)]{hamilton1834} Hamilton, W.R. (1834) On a General Method in Dynamics. \textit{Philosophical Transactions of the Royal Society}, Part I, 247--308.
+
+\bibitem[Hamilton(1835)]{hamilton1835} Hamilton, W.R. (1835) Second Essay on a General Method in Dynamics. \textit{Philosophical Transactions of the Royal Society}, Part I, 95--144.
+
+\bibitem[Wien(1896)]{wien1896} Wien, W. (1896) Über die Energievertheilung im Emissionsspectrum eines schwarzen Körpers. \textit{Annalen der Physik}, \textbf{294}(8), 662--669. DOI: 10.1002/andp.18962940803
+
+\bibitem[Rayleigh(1900)]{rayleigh1900} Rayleigh, J. W. S. (1900) Remarks upon the Law of Complete Radiation. \textit{Philosophical Magazine}, \textbf{49}, 539--540.
+
+\bibitem[Jeans(1905)]{jeans1905} Jeans, J.H. (1905) XI. On the Partition of Energy between Matter and Aether. \textit{The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science}, \textbf{10}, 91--98.
+
+\bibitem[Debye(1912)]{debye1912} Debye, P. (1912) Zur Theorie der spezifischen Wärmen. \textit{Annalen der Physik}, \textbf{39}(4), 789--839. DOI: 10.1002/andp.19123441404
+
+
+%% PAPERS SEMINALES HISTÓRICOS
+
+\bibitem[Planck(1901)]{planck1901} Planck, M. (1901) Über das Gesetz der Energieverteilung im Normalspektrum. \textit{Annalen der Physik}, \textbf{309}(3), 553--563. DOI: 10.1002/andp.19013090310
+
+\bibitem[Einstein(1907)]{einstein1907} Einstein, A. (1907) Die Plancksche Theorie der Strahlung und die Theorie der spezifischen Wärme. \textit{Annalen der Physik}, \textbf{22}, 180--190. DOI: 10.1002/andp.19063270110
+
+\bibitem[Heisenberg(1925)]{heisenberg1925} Heisenberg, W. (1925) Über quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen. \textit{Zeitschrift für Physik}, \textbf{33}, 879--893. DOI: 10.1007/BF01328377
+
+\bibitem[Born \& Jordan(1925)]{born1925} Born, M. y Jordan, P. (1925) Zur Quantenmechanik. \textit{Zeitschrift für Physik}, \textbf{34}, 858--888.
+
+\bibitem[Born et al.(1926)]{bornheisenberg1926} Born, M., Heisenberg, W. y Jordan, P. (1926) Zur Quantenmechanik II. \textit{Zeitschrift für Physik}, \textbf{35}, 557--615.
+
+\bibitem[Schrödinger(1926a)]{schrodinger1926a} Schrödinger, E. (1926) Quantisierung als Eigenwertproblem (Erste Mitteilung). \textit{Annalen der Physik}, \textbf{384}(4), 361--376. DOI: 10.1002/andp.19263840404
+
+\bibitem[Schrödinger(1926b)]{schrodinger1926b} Schrödinger, E. (1926) Quantisierung als Eigenwertproblem (Zweite Mitteilung). \textit{Annalen der Physik}, \textbf{384}(6), 489--527. DOI: 10.1002/andp.19263840602
+
+\bibitem[Schrödinger(1926c)]{schrodinger1926c} Schrödinger, E. (1926) Der stetige Übergang von der Mikro- zur Makromechanik. \textit{Naturwissenschaften}, \textbf{14}, 664--666. DOI: 10.1007/BF01507634
+
+\bibitem[Dirac(1925)]{dirac1925} Dirac, P.A.M. (1925) The Fundamental Equations of Quantum Mechanics. \textit{Proceedings of the Royal Society of London A}, \textbf{109}, 642--653.
+
+\bibitem[Dirac(1927)]{dirac1927} Dirac, P.A.M. (1927) The Quantum Theory of the Emission and Absorption of Radiation. \textit{Proceedings of the Royal Society of London A}, \textbf{114}(767), 243--265.
+
+\bibitem[Dirac(1930)]{dirac1930} Dirac, P.A.M. (1930) \emph{The Principles of Quantum Mechanics}, 1st ed. Clarendon Press, Oxford.
+
+\bibitem[Glauber(1963a)]{glauber1963a} Glauber, R.J. (1963) The Quantum Theory of Optical Coherence. \textit{Physical Review}, \textbf{130}(6), 2529--2539. DOI: 10.1103/PhysRev.130.2529
+
+\bibitem[Glauber(1963b)]{glauber1963b} Glauber, R.J. (1963) Coherent and Incoherent States of the Radiation Field. \textit{Physical Review}, \textbf{131}(6), 2766--2788. DOI: 10.1103/PhysRev.131.2766
+
+\bibitem[Sudarshan(1963)]{sudarshan1963} Sudarshan, E.C.G. (1963) Equivalence of Semiclassical and Quantum Mechanical Descriptions of Statistical Light Beams. \textit{Physical Review Letters}, \textbf{10}(7), 277--279. DOI: 10.1103/PhysRevLett.10.277
+
+%% LIBROS DE TEXTO FUNDAMENTALES
+
+\bibitem[Griffiths \& Schroeter(2018)]{griffiths2018} Griffiths, D.J. y Schroeter, D.F. (2018) \emph{Introduction to Quantum Mechanics}, 3rd ed. Cambridge University Press, Cambridge.
+
+\bibitem[Sakurai \& Napolitano(2020)]{sakurai2020} Sakurai, J.J. y Napolitano, J. (2020) \emph{Modern Quantum Mechanics}, 3rd ed. Cambridge University Press, Cambridge.
+
+\bibitem[Cohen-Tannoudji et al.(2019)]{cohentannoudji2019} Cohen-Tannoudji, C., Diu, B. y Laloë, F. (2019--2020) \emph{Quantum Mechanics}, Vols. 1--3, 2nd ed. Wiley-VCH, Weinheim.
+
+\bibitem[Gerry \& Knight(2004)]{gerry2004} Gerry, C.C. y Knight, P.L. (2004) \emph{Introductory Quantum Optics}. Cambridge University Press, Cambridge.
+
+\bibitem[Nielsen \& Chuang(2010)]{nielsen2010} Nielsen, M.A. y Chuang, I.L. (2010) \emph{Quantum Computation and Quantum Information}, 10th Anniversary ed. Cambridge University Press, Cambridge.
+
+\bibitem[Schleich(2001)]{schleich2001} Schleich, W.P. (2001) \emph{Quantum Optics in Phase Space}. Wiley-VCH, Weinheim.
+
+\bibitem[Case(2008)]{case2008} Case, W.B. (2008) Wigner functions and Weyl transforms for pedestrians. \textit{American Journal of Physics}, \textbf{76}(10), 937--946.
+
+%% CIRCUIT QED Y QUBITS SUPERCONDUCTORES
+
+\bibitem[Koch et al.(2007)]{koch2007} Koch, J., Yu, T.M., Gambetta, J., Houck, A.A., Schuster, D.I., Majer, J., Blais, A., Devoret, M.H., Girvin, S.M. y Schoelkopf, R.J. (2007) Charge-insensitive qubit design derived from the Cooper pair box. \textit{Physical Review A}, \textbf{76}, 042319.
+
+\bibitem[Blais et al.(2004)]{blais2004} Blais, A., Huang, R.-S., Wallraff, A., Girvin, S.M. y Schoelkopf, R.J. (2004) Cavity quantum electrodynamics for superconducting electrical circuits: An architecture for quantum computation. \textit{Physical Review A}, \textbf{69}, 062320.
+
+\bibitem[Blais et al.(2021)]{blais2021} Blais, A., Grimsmo, A.L., Girvin, S.M. y Wallraff, A. (2021) Circuit quantum electrodynamics. \textit{Reviews of Modern Physics}, \textbf{93}, 025005.
+
+\bibitem[Wallraff et al.(2004)]{wallraff2004} Wallraff, A., Schuster, D.I., Blais, A., Frunzio, L., Huang, R.-S., Majer, J., Kumar, S., Girvin, S.M. y Schoelkopf, R.J. (2004) Circuit quantum electrodynamics: Coherent coupling of a single photon to a Cooper pair box. \textit{Nature}, \textbf{431}, 162--167.
+
+\bibitem[Krantz et al.(2019)]{krantz2019} Krantz, P., Kjaergaard, M., Yan, F., Orlando, T.P., Gustavsson, S. y Oliver, W.D. (2019) A quantum engineer's guide to superconducting qubits. \textit{Applied Physics Reviews}, \textbf{6}, 021318.
+
+%% IONES ATRAPADOS
+
+\bibitem[Cirac \& Zoller(1995)]{cirac1995} Cirac, J.I. y Zoller, P. (1995) Quantum computations with cold trapped ions. \textit{Physical Review Letters}, \textbf{74}, 4091--4094.
+
+\bibitem[Mølmer \& Sørensen(1999)]{molmer1999} Mølmer, K. y Sørensen, A. (1999) Multiparticle entanglement of hot trapped ions. \textit{Physical Review Letters}, \textbf{82}, 1835.
+
+\bibitem[Bruzewicz et al.(2019)]{bruzewicz2019} Bruzewicz, C.D., Chiaverini, J., McConnell, R. y Sage, J.M. (2019) Trapped-ion quantum computing: Progress and challenges. \textit{Applied Physics Reviews}, \textbf{6}, 021314.
+
+\bibitem[Leibfried et al.(2003)]{leibfried2003} Leibfried, D., Blatt, R., Monroe, C. y Wineland, D. (2003) Quantum dynamics of single trapped ions. \textit{Reviews of Modern Physics}, \textbf{75}, 281.
+
+%% CÓDIGOS BOSÓNICOS
+
+\bibitem[Gottesman et al.(2001)]{gkp2001} Gottesman, D., Kitaev, A. y Preskill, J. (2001) Encoding a qubit in an oscillator. \textit{Physical Review A}, \textbf{64}, 012310.
+
+\bibitem[Ofek et al.(2016)]{ofek2016} Ofek, N., Petrenko, A., Heeres, R., Reinhold, P., Leghtas, Z., Vlastakis, B., Liu, Y., Frunzio, L., Girvin, S.M., Jiang, L., Mirrahimi, M., Devoret, M.H. y Schoelkopf, R.J. (2016) Extending the lifetime of a quantum bit with error correction in superconducting circuits. \textit{Nature}, \textbf{536}, 441--445.
+
+\bibitem[Michael et al.(2016)]{michael2016} Michael, M.H., Silveri, M., Brierley, R.T., Albert, V.V., Salmilehto, J., Jiang, L. y Girvin, S.M. (2016) New class of quantum error-correcting codes for a bosonic mode. \textit{Physical Review X}, \textbf{6}, 031006.
+
+\bibitem[Campagne-Ibarcq et al.(2020)]{campagne2020} Campagne-Ibarcq, P., Eickbusch, A., Touzard, S., Zalys-Geller, E., Frattini, N.E., Sivak, V.V., Reinhold, P., Puri, S., Shankar, S., Schoelkopf, R.J., Frunzio, L., Mirrahimi, M. y Devoret, M.H. (2020) Quantum error correction of a qubit encoded in grid states of an oscillator. \textit{Nature}, \textbf{584}, 368--372.
+
+\bibitem[Sivak et al.(2023)]{sivak2023} Sivak, V.V., Eickbusch, A., Royer, B., Singh, S., Tsioutsios, I., Ganjam, S., Miano, A., Brock, B.L., Ding, A.Z., Frunzio, L., Girvin, S.M., Schoelkopf, R.J. y Devoret, M.H. (2023) Real-time quantum error correction beyond break-even. \textit{Nature}, \textbf{616}, 50--55. DOI: 10.1038/s41586-023-05782-6
+
+\bibitem[Ni et al.(2023)]{ni2023} Ni, Z., Li, S., Deng, X., Cai, Y., Zhang, L., Wang, W., Yang, Z.-B., Yu, H., Yan, F., Xu, S., Zhao, J.-S. y Zheng, D. (2023) Beating the break-even point with a discrete-variable-encoded logical qubit. \textit{Nature}, \textbf{616}, 56--60. DOI: 10.1038/s41586-023-05784-4
+
+\bibitem[Réglade et al.(2024)]{reglade2024} Réglade, U., Bocquet, A., Gautier, R., Cohen, J., Marquet, A., Albertinale, E., Pankratova, N., Hallén, M., Raskhodchikov, F., Jehl, L., Planat, L., Forment-Gillet, L., Esposito, M., Lescanne, R., Ficheux, Q., Mallet, F., Brune, M., Roch, N., Flurin, E., Huard, B., Leghtas, Z. y Devoret, M.H. (2024) Quantum control of a cat qubit with bit-flip times exceeding ten seconds. \textit{Nature}, \textbf{629}, 778--783. DOI: 10.1038/s41586-024-07294-3
+
+\bibitem[Putterman et al.(2025)]{putterman2025} Putterman, H., Noh, K., Xu, Q., Pereira, O., Ravi, G.S., Childs, J., Jiang, L., Albert, V.V. y Painter, O. (2025) Hardware-efficient quantum error correction using concatenated bosonic qubits. \textit{Nature}. DOI: 10.1038/s41586-025-08642-7
+
+\bibitem[Brady et al.(2024)]{brady2024} Brady, A.J., Kapourniotis, T. y Datta, A. (2024) Advances in Bosonic Quantum Error Correction with Gottesman-Kitaev-Preskill Codes. \textit{Progress in Quantum Electronics}, \textbf{93}, 100496.
+
+\bibitem[Terhal et al.(2020)]{terhal2020} Terhal, B.M., Conrad, J. y Vuillot, C. (2020) Towards scalable bosonic quantum error correction. \textit{Quantum Science and Technology}, \textbf{5}, 043001.
+
+%% CVQC
+
+\bibitem[Braunstein \& van Loock(2005)]{braunstein2005} Braunstein, S.L. y van Loock, P. (2005) Quantum information with continuous variables. \textit{Reviews of Modern Physics}, \textbf{77}, 513--577.
+
+\bibitem[Weedbrook et al.(2012)]{weedbrook2012} Weedbrook, C., Pirandola, S., García-Patrón, R., Cerf, N.J., Ralph, T.C., Shapiro, J.H. y Lloyd, S. (2012) Gaussian quantum information. \textit{Reviews of Modern Physics}, \textbf{84}, 621.
+
+\bibitem[Madsen et al.(2022)]{madsen2022} Madsen, L.S., Laudenbach, F., Askarani, M.F., Rortais, F., Vincent, T., Bulmer, J.F.F., Miatto, F.M., Neuhaus, L., Helt, L.G., Collins, M.J., Lita, A.E., Gerrits, T., Nam, S.W., Vaidya, V.D., Menotti, M., Dhand, I., Vernon, Z., Quesada, N. y Lavoie, J. (2022) Quantum computational advantage with a programmable photonic processor. \textit{Nature}, \textbf{606}, 75--81.
+
+\bibitem[Bourassa et al.(2021)]{bourassa2021} Bourassa, J.E., Alexander, R.N., Vasmer, M., Patil, A., Tzitrin, I., Matsuura, T., Su, D., Baragiola, B.Q., Guha, S., Dauphinais, G., Sabapathy, K.K., Menicucci, N.C. y Dhand, I. (2021) Blueprint for a scalable photonic fault-tolerant quantum computer. \textit{Quantum}, \textbf{5}, 392.
+
+%% PAPERS EXPERIMENTALES RECIENTES
+
+\bibitem[Hou et al.(2024)]{hou2024} Hou, P.-Y., Nguyen, J.J., Kautz, L., Becker, B., Brocourt, L., Patel, R., Johansen, J., Sheremet, A. y Tan, T.R. (2024) Coherent coupling and non-destructive measurement of trapped-ion mechanical oscillators. \textit{Nature Physics}, \textbf{20}, 702--707. DOI: 10.1038/s41567-024-02599-6
+
+\bibitem[Burd et al.(2024)]{burd2024} Burd, S.C., Srinivas, R., Knaack, H.M., Ge, W., Wilson, A.C., Wineland, D.J., Leibfried, D., Bollinger, J.J., Allcock, D.T.C. y Slichter, D.H. (2024) Squeezing-amplified interactions in quantum harmonic oscillators. \textit{PRX Quantum}, \textbf{5}, 020314. DOI: 10.1103/PRXQuantum.5.020314
+
+\bibitem[Park et al.(2024)]{park2024} Park, K., Kim, P. y Jeong, H. (2024) Experimental realization of entangled coherent states in two-dimensional harmonic oscillators of a trapped ion. \textit{Scientific Reports}, \textbf{14}, 7359. DOI: 10.1038/s41598-024-57391-6
+
+\bibitem[Dania et al.(2025)]{dania2025} Dania, L., Bykov, D.S., Conangla, G.P., Rieser, J., Quidant, R., Kiesel, N. y Novotny, L. (2025) High-purity quantum optomechanics at room temperature. \textit{Nature Physics}. DOI: 10.1038/s41567-025-02976-9
+
+\bibitem[Bild et al.(2023)]{bild2023} Bild, M., Fadel, M., Yang, Y., Schär, U., Chu, Y. y Yelin, S.F. (2023) Schrödinger cat states of a 16-microgram mechanical oscillator. \textit{Science}, \textbf{380}, 274--278. DOI: 10.1126/science.adf7553
+
+\bibitem[Piotrowski et al.(2023)]{piotrowski2023} Piotrowski, J., Windey, D., Vijayan, J., Gonzalez-Ballestero, C., de los Ríos Sommer, A., Meyer, N., Quidant, R., Romero-Isart, O., Reimann, R. y Novotny, L. (2023) Simultaneous ground-state cooling of two mechanical modes of a levitated nanoparticle. \textit{Nature Physics}, \textbf{19}, 1009--1013. DOI: 10.1038/s41567-023-01956-1
+
+\bibitem[Iyama et al.(2024)]{iyama2024} Iyama, D., Kamiya, T., Furusawa, S., Kanazawa, N., Kakuyanagi, K., Toida, H., Semba, K., Matsuzaki, Y., Munro, W.J. y Saito, S. (2024) Observation and manipulation of quantum interference in a superconducting Kerr parametric oscillator. \textit{Nature Communications}, \textbf{15}, 86. DOI: 10.1038/s41467-023-44496-1
+
+\bibitem[Wollack et al.(2022)]{wollack2022} Wollack, E.A., Cleland, A.Y., Gruenke, R.G., Wang, Z., Arrangoiz-Arriola, P. y Safavi-Naeini, A.H. (2022) Quantum state preparation and tomography of entangled mechanical resonators. \textit{Nature}, \textbf{604}, 463--467. DOI: 10.1038/s41586-022-04500-y
+
+\bibitem[Qiao et al.(2023)]{qiao2023} Qiao, H., Clerk, A.A. y Safavi-Naeini, A.H. (2023) Splitting phonons: building a platform for linear mechanical quantum computing. \textit{Science}, \textbf{380}, 1030--1033. DOI: 10.1126/science.adg8715
+
+\bibitem[Arrangoiz-Arriola et al.(2019)]{arrangoiz2019} Arrangoiz-Arriola, P., Wollack, E.A., Wang, Z., Pechal, M., Jiang, W., McKenna, T.P., Cleland, A.Y. y Safavi-Naeini, A.H. (2019) Resolving the energy levels of a nanomechanical oscillator. \textit{Nature}, \textbf{571}, 537--540. DOI: 10.1038/s41586-019-1386-x
+
+\bibitem[Grimm et al.(2020)]{grimm2020} Grimm, A., Frattini, N.E., Puri, S., Mundhada, S.O., Touzard, S., Mirrahimi, M., Girvin, S.M., Shankar, S. y Devoret, M.H. (2020) Stabilization and operation of a Kerr-cat qubit. \textit{Nature}, \textbf{584}, 205--209.
+
+\bibitem[Hajr et al.(2024)]{hajr2024} Hajr, A., Maiwöger, P., Renger, M., Albertinale, E., Banerjee, A., Reinhold, P., Leghtas, Z., Gross, R. y Fedorov, A. (2024) High-Coherence Kerr-Cat Qubit in 2D Architecture. \textit{Physical Review X}, \textbf{14}, 041049.
+
+\bibitem[Puri et al.(2019)]{puri2019} Puri, S., Boutin, S. y Blais, A. (2019) Stabilized cat in a driven nonlinear cavity: A fault-tolerant error syndrome detector. \textit{Physical Review X}, \textbf{9}, 041009.
+
+%% PERSPECTIVAS FUTURAS
+
+\bibitem[Liu et al.(2024)]{liu2024} Liu, Y., Griffin, P., Pittman, D., Smith, A., Chong, F.T., Martonosi, M. y Houck, A.A. (2024) Hybrid Oscillator-Qubit Quantum Processors: Instruction Set Architectures, Abstract Machine Models, and Applications. arXiv:2407.10381.
+
+\bibitem[Eickbusch et al.(2024)]{eickbusch2024} Eickbusch, A., Sivak, V., Ding, A.Z., Elder, S.S., Jha, S.R., Venkatraman, J., Royer, B., Girvin, S.M., Schoelkopf, R.J. y Devoret, M.H. (2024) Hardware-Efficient Fault Tolerant Quantum Computing with Bosonic Grid States in Superconducting Circuits. arXiv:2409.05813.
+
+\bibitem[Chamberland et al.(2022)]{chamberland2022} Chamberland, C., Noh, K., Arrangoiz-Arriola, P., Campbell, E.T., Hann, C.T., Iverson, J., Putterman, H., Bohdanowicz, T.C., Flammia, S.T., Keller, A., Refael, G., Preskill, J., Jiang, L., Safavi-Naeini, A.H., Painter, O. y Brandão, F.G.S.L. (2022) Building a fault-tolerant quantum computer using concatenated cat codes. \textit{PRX Quantum}, \textbf{3}, 010329.
+
+\bibitem[Alexander et al.(2025)]{alexander2025} Alexander, R.N., Yong, J.C., Bersin, E., Choi, H., Huber, J., Jaffe, M., Kaplan, A., Lauk, N., Ledford, J., Lo, A., Miller, S.A., Mondal, S., Phillips, M., Pooser, R., Spiropulu, M. y Verdon, G. (2025) Scaling and networking a modular photonic quantum computer. \textit{Nature}.
+
+
+\end{thebibliography}
+%\bibliographystyle{plain} 
+%\bibliography{bibliografia}
+
+
+\appendix
+\chapter{Apéndices}
+
+\subsection{Expresión Taylor} \label{sec:taylor}
+La expansión de Taylor de un potencial $V(x)$ alrededor de un mínimo en $x_0$ es:
+\[
+V(x) = V(x_0) + V'(x_0)(x - x_0) + \frac{1}{2}V''(x_0)(x - x_0)^2 + \cdots
+\]
+Dado que $V'(x_0) = 0$ en el mínimo, el término dominante para pequeñas oscilaciones es cuadrático: $V(x) \approx V(x_0) + \frac{1}{2}V''(x_0)(x - x_0)^2$, que es precisamente la forma del potencial del oscilador armónico con constante efectiva $k = V''(x_0)$.
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
