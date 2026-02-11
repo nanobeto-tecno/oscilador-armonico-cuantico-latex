@@ -1,0 +1,90 @@
+% timeline_oac.tex
+% Versión con máximo espaciado y sin superposiciones
+
+\begin{tikzpicture}[
+    % Estilos para los nodos
+    evento/.style={circle, fill=blue!70, inner sep=2pt, minimum size=6pt},
+    evento_mayor/.style={circle, fill=red!70, inner sep=2.5pt, minimum size=8pt},
+    texto/.style={font=\scriptsize, text width=2.4cm, align=center},
+    año/.style={font=\scriptsize\bfseries},
+    scale=0.8, transform shape
+    ]
+    
+    % Línea temporal principal (aún más larga)
+    \draw[line width=1.2pt, -Stealth] (0,0) -- (20,0);
+    
+    % Etiquetas de períodos (fondo) - más separadas
+    \node[fill=gray!10, rounded corners, minimum width=3.8cm, minimum height=0.7cm] at (1.9, -3.5) {\scriptsize\textit{Era Clásica}};
+    \node[fill=yellow!10, rounded corners, minimum width=10cm, minimum height=0.7cm] at (10.5, -3.5) {\scriptsize\textit{Fundación Cuántica}};
+    \node[fill=green!10, rounded corners, minimum width=2.8cm, minimum height=0.7cm] at (18, -3.5) {\scriptsize\textit{Teoría Moderna}};
+    
+    % PERÍODO CLÁSICO
+    % Hooke 1678
+    \node[evento] (hooke) at (0,0) {};
+    \draw (hooke) -- (0,1.1);
+    \node[año] at (0,1.35) {1678};
+    \node[texto] at (0,2.2) {\textbf{Hooke}\\ Ley de elasticidad\\ {\tiny $F = -kx$}};
+    
+    % Lagrange 1788
+    \node[evento] (lagrange) at (2.2,0) {};
+    \draw (lagrange) -- (2.2,-0.9);
+    \node[año] at (2.2,-1.15) {1788};
+    \node[texto] at (2.2,-2) {\textbf{Lagrange}\\ Mecánica\\ analítica};
+    
+    % Hamilton 1834
+    \node[evento] (hamilton) at (4.2,0) {};
+    \draw (hamilton) -- (4.2,1.1);
+    \node[año] at (4.2,1.35) {1834};
+    \node[texto] at (4.2,2.3) {\textbf{Hamilton}\\ Hamiltoniano\\ {\tiny $H = \frac{p^2}{2m} + \frac{1}{2}kx^2$}};
+    
+    % PERÍODO CUÁNTICO INICIAL
+    % Planck 1900
+    \node[evento_mayor] (planck) at (6.5,0) {};
+    \draw[thick] (planck) -- (6.5,-0.9);
+    \node[año] at (6.5,-1.15) {1900};
+    \node[texto] at (6.5,-2) {\textbf{Planck}\\ Cuantización\\ {\tiny $E = nh\nu$}};
+    
+    % Einstein 1907
+    \node[evento_mayor] (einstein) at (8.3,0) {};
+    \draw[thick] (einstein) -- (8.3,1.1);
+    \node[año] at (8.3,1.35) {1907};
+    \node[texto] at (8.3,2.2) {\textbf{Einstein}\\ Calor específico\\ de sólidos};
+    
+    % DÉCADA PRODIGIOSA - MÁXIMO ESPACIADO
+    % Heisenberg 1925
+    \node[evento_mayor] (heisenberg) at (10.5,0) {};
+    \draw[thick] (heisenberg) -- (10.5,-0.9);
+    \node[año] at (10.5,-1.15) {1925};
+    \node[texto] at (10.5,-2) {\textbf{Heisenberg}\\ Mecánica\\ matricial};
+    
+    % Born-Jordan 1925 (bien separado de Heisenberg)
+    \node[evento_mayor] (born) at (12.5,0) {};
+    \draw[thick] (born) -- (12.5,1.1);
+    \node[año] at (12.5,1.35) {1925};
+    \node[texto] at (12.5,2.3) {\textbf{Born-Jordan}\\ {\tiny $[x,p] = i\hbar$}\\ Espectro};
+    
+    % Schrödinger 1926
+    \node[evento_mayor] (schrodinger) at (14.3,0) {};
+    \draw[thick] (schrodinger) -- (14.3,-0.9);
+    \node[año] at (14.3,-1.15) {1926};
+    \node[texto] at (14.3,-2.1) {\textbf{Schrödinger}\\ Mecánica\\ ondulatoria\\ {\tiny Hermite}};
+    
+    % Dirac 1930
+    \node[evento_mayor] (dirac) at (16,0) {};
+    \draw[thick] (dirac) -- (16,1.1);
+    \node[año] at (16,1.35) {1930};
+    \node[texto] at (16,2.3) {\textbf{Dirac}\\ Operadores\\ escalera\\ {\tiny $\hat{a}$, $\hat{a}^\dagger$}};
+    
+    % TEORÍA MODERNA
+    % Glauber 1963
+    \node[evento_mayor] (glauber) at (18,0) {};
+    \draw[thick] (glauber) -- (18,-0.9);
+    \node[año] at (18,-1.15) {1963};
+    \node[texto] at (18,-2.1) {\textbf{Glauber}\\ Estados\\ coherentes\\ {\tiny $\hat{a}|\alpha\rangle = \alpha|\alpha\rangle$}};
+    
+    % Época actual (indicador)
+    \node[font=\scriptsize\bfseries, text=blue!70] at (19.5, 0.7) {2020-};
+    \node[font=\scriptsize\bfseries, text=blue!70] at (19.5, 0.35) {2025};
+    \node[font=\tiny, text width=1.8cm, align=center] at (19.5, -0.5) {Validaciones\\experimentales};
+    
+\end{tikzpicture}

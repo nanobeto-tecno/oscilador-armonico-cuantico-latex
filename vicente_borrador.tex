@@ -1,5 +1,7 @@
 \documentclass[11pt,a4paper,spanish]{book}
 \usepackage{estilo_unir-1}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, decorations.pathmorphing}
 
 
 
@@ -126,7 +128,15 @@ Cada avance conceptual —la mecánica matricial de Heisenberg, la ecuación de 
 \subsection*{Orígenes clásicos}
 El concepto de oscilador armónico tiene raíces en la mecánica clásica del siglo XVII. Robert Hooke formuló su ley de fuerza restauradora lineal (Ut tensio, sic vis — "como la extensión, así la fuerza") en su obra \cite{hooke1678}. La formalización matemática se completó con la mecánica analítica de Lagrange \citep{lagrange1788} y Hamilton \citep{hamilton1834, hamilton1835} , estableciendo el hamiltoniano clásico $H = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2$ como modelo universal para oscilaciones pequeñas alrededor de cualquier punto de equilibrio estable.\\
 
-Para finales del siglo XIX, el oscilador armónico clásico era el paradigma central de sistemas oscilatorios en mecánica, acústica y electrodinámica. Su importancia radicaba en que cualquier potencial V(x) cerca de un mínimo puede aproximarse como cuadrático mediante una expansión de Taylor~\ref{sec:taylor} , haciendo del oscilador armónico una aproximación universal.
+Para finales del siglo XIX, el oscilador armónico clásico era el paradigma central de sistemas oscilatorios en mecánica, acústica y electrodinámica. Su importancia radicaba en que cualquier potencial V(x) cerca de un mínimo puede aproximarse como cuadrático mediante una expansión de Taylor~\ref{sec:taylor} , haciendo del oscilador armónico una aproximación universal.\\
+
+\begin{figure}[h]
+    \centering
+    \input{Figures/tikz/timeline_oac}
+    \caption{Línea temporal del desarrollo del oscilador armónico cuántico desde los fundamentos clásicos (1678) hasta la teoría moderna (1963) y las validaciones experimentales recientes (2020-2025). Fuente propia.}
+    \label{fig:timeline_oac}
+\end{figure}
+
 
 \subsection*{La cuantización de Planck (1900)}
 La transición de lo clásico a lo cuántico surgió del \textbf{problema de la radiación del cuerpo negro}. Las leyes de \cite{wien1896} y \cite{rayleigh1900, jeans1905} fallaban en diferentes rangos espectrales, y la segunda predecía una divergencia ultravioleta catastrófica. Max Planck presentó  el 19 de octubre de 1900 ante la Sociedad Alemana de Física \citep{planck1901} su derivación teórica, que requería que la energía de estos osciladores estuviera restringida a múltiplos discretos de una unidad fundamental: $E = n\hbar\nu$. El 14 de diciembre de 1900, Planck había llegado a una conclusión algo radical: los osciladores que comprenden el cuerpo negro y que re-emiten la energía radiante que incide sobre ellos no pueden absorber esta energía de forma continua, tan solo en cantidades discretas, o cuantos de energía.\\
@@ -136,21 +146,100 @@ La transición de lo clásico a lo cuántico surgió del \textbf{problema de la 
 
 
 \subsection*{Einstein y el calor específico de los sólidos (1907)}
-Pendiente
+\textbf{Albert Einstein} fue el primero en tomar la hipótesis de cuantización en serio y aplicarla más allá de la radiación. En \cite{einstein1907}, modeló un sólido cristalino como una colección de osciladores armónicos cuánticos independientes, todos vibrando a la misma frecuencia. Su modelo~\ref{sec:einstein} predecía correctamente que el calor específico se anula exponencialmente cuando T → 0, en contraste con la ley clásica de Dulong-Petit.
 
 \subsection*{Heisenberg y la mecánica matricial (1925)}
-Pendiente
+En el verano de 1925, \textbf{Werner Heisenberg} \citep{heisenberg1925} construyó una nueva mecánica basada exclusivamente en cantidades observables ~\ref{sec:heisenberg}. El oscilador armónico (específicamente, un oscilador anarmónico) fue el sistema de prueba principal de su paper fundacional.
+
+El trabajo de Heisenberg sobre el oscilador armónico fue:
+
+\begin{itemize}
+	\item La \textbf{primera formulación completa y autoconsistente} de la mecánica cuántica
+	\item La primera derivación rigurosa del espectro del OAC sin hipótesis ad hoc
+	\item El origen del \textbf{principio de incertidumbre}: la no-conmutación implica que $x$ y $p$ no pueden tener valores simultáneos definidos
+	\item La base conceptual de la \textbf{teoría cuántica de campos}, donde operadores (no funciones de onda) son fundamentales
+\end{itemize}
+
+Schrödinger demostró posteriormente (1926) que su mecánica ondulatoria era matemáticamente equivalente a la mecánica matricial, pero el formalismo de operadores de Heisenberg resultó más fundamental para el desarrollo posterior de la física cuántica.
+
+\textbf{Nota:} Heisenberg trabajó inicialmente con un oscilador \emph{anarmónico} (con términos cúbicos en el potencial) como sistema de prueba más general, demostrando que su método funcionaba incluso cuando no había solución exacta conocida.\\
+
+
+\textbf{Max Born y Pascual Jordan} reconocieron la estructura matricial y formalizaron la mecánica de Heisenberg ~\ref{sec:born}, estableciendo la relación de conmutación canónica $pq - qp = (\frac{\hslash}{i})\mathbb{I}$ y derivando por primera vez el espectro de energía $E_n = (n + \frac{1}{2})\hslash\omega$, incluyendo la energía de punto cero $\frac{1}{2}\hslash\omega$.\\
+
+El método de Born-Jordan-Heisenberg (algebráico) es notable porque:
+
+\begin{enumerate}
+	\item \textbf{No requiere resolver ecuaciones diferenciales} — es puramente algebraico
+	\item \textbf{Proporciona el espectro completo} incluyendo la energía de punto cero automáticamente
+	\item \textbf{Introduce los operadores $a$ y $a^\dagger$} que son fundamentales en toda la física cuántica moderna
+	\item \textbf{Es generalizable} — el mismo método funciona para cualquier sistema con álgebra de conmutadores conocida
+\end{enumerate}
+
+Este formalismo se convirtió en la base de la \textbf{segunda cuantización} y la teoría cuántica de campos, donde los operadores de creación ($a^\dagger$) y aniquilación ($a$) crean y destruyen partículas (fotones, fonones, electrones, etc.).\\
 
 
 \subsection*{Schrödinger y la mecánica ondulatoria (1926)}
-Pendiente
+\textbf{Erwin Schrödinger}  desarrolló una formulación equivalente pero completamente diferente~\ref{sec:taylor}. En la segunda de sus cuatro comunicaciones tituladas "Quantisierung als Eigenwertproblem"  \cite{schrodinger1926b}, aplicó su ecuación de onda al oscilador armónico y obtuvo las soluciones en términos de \textbf{polinomios de Hermite}, confirmando el espectro $E_n = (n + 1/2)\hslash\omega$\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/HarmOsziFunktionen.png}
+    \caption{Funciones de onda de un Oscilador armónico cuántico. Licencia: Public domain o CC-BY}
+    \label{fig:HarmOsziFunktionen}
+\end{figure}
+
+En física contemporánea, especialmente en computación cuántica, se usa predominantemente el formalismo de operadores (método algebraico), mientras que las funciones de onda se emplean para visualización y cálculos específicos.
 
 \subsection*{El método algebraico de Dirac: operadores de creación y aniquilación (1930)}
-Pendiente
+\textbf{Paul Dirac} desarrolló un método algebraico \citep{dirac1925} que evita resolver ecuaciones diferenciales~\ref{sec:dirac}, introduciendo los operadores escalera $[a, a^\dagger]$. La factorización del hamiltoniano como $H = \hbar\omega\left(a^\dagger a + \frac{1}{2}\right)$ y la derivación puramente algebraica del espectro se convirtieron en el enfoque pedagógico estándar y, crucialmente, en la plantilla para la teoría cuántica de campos.\\
+
+El método de Dirac se convirtió en el \textbf{enfoque pedagógico estándar} porque:
+
+\begin{enumerate}
+	\item Es conceptualmente más simple que resolver ecuaciones diferenciales
+	\item Proporciona intuición física directa (subir/bajar niveles de energía)
+	\item Se generaliza inmediatamente a sistemas de múltiples osciladores
+	\item Es la base natural para entender fotones, fonones, y otras cuasipartículas
+	\item Conecta directamente con el formalismo de información cuántica\\
+\end{enumerate}
+
+El formalismo de operadores escalera de Dirac es el lenguaje estándar de:
+
+\begin{itemize}
+	\item \textbf{Circuit QED}: El hamiltoniano de Jaynes-Cummings usa explícitamente $\hat{a}$ y $\hat{a}^\dagger$ para fotones en cavidades \citep{blais2021}
+	\item \textbf{Códigos bosónicos}: Estados de Fock $|n\rangle$ son la base para códigos GKP y binomiales \citep{gkp2001, michael2016}
+	\item \textbf{Estados coherentes}: Definidos como autoestados de $\hat{a}$ \citep{glauber1963a}
+	\item \textbf{CVQC}: Operadores de desplazamiento y compresión se expresan en términos de $\hat{a}$ y $\hat{a}^\dagger$ \citep{braunstein2005}
+\end{itemize}
+
+El método algebraico de Dirac, desarrollado en 1930 para resolver el oscilador armónico, es hoy el marco conceptual de la computación cuántica basada en osciladores.
 
 
 \subsection*{Los estados coherentes de Glauber (1963)}
-Pendiente
+\textbf{Roy J. Glauber} proporcionó el marco completo de la óptica cuántica para estados coherentes \citep{glauber1963a}, definidos como autoestados del operador de aniquilación $\hat{a}|\alpha\rangle = \alpha|\alpha\rangle$. Estos estados representan el análogo cuántico más cercano al comportamiento clásico oscilatorio.\\
+
+Glauber recibió el Premio Nobel de Física 2005 por este trabajo, que estableció la óptica cuántica como disciplina rigurosa.\\
+
+
+Los estados coherentes son fundamentales en múltiples aplicaciones de computación cuántica:
+
+\textbf{Cat codes (códigos gato):} \citep{ofek2016, reglade2024}
+Superposiciones de estados coherentes $|\alpha\rangle \pm |-\alpha\rangle$ que codifican qubits lógicos con protección exponencial contra errores de bit-flip.
+
+\textbf{Control de iones atrapados:} \citep{leibfried2003}
+La luz láser usada para manipular qubits iónicos se describe como estados coherentes del campo electromagnético.
+
+\textbf{Computación cuántica de variables continuas (CVQC):} \citep{braunstein2005, bourassa2021}
+Estados coherentes son la base computacional natural. El operador desplazamiento $\hat{D}(\alpha)$ es una puerta cuántica fundamental.
+
+\textbf{Códigos GKP:} \citep{gkp2001}
+Construcciones basadas en superposiciones periódicas de estados coherentes desplazados en espacio de fase.
+
+\textbf{Teleportación cuántica de variables continuas:} \citep{braunstein2005}
+Usa estados coherentes comprimidos (squeezed) como recurso de entrelazamiento.\\
+
+Los estados coherentes de Glauber, concebidos para describir luz láser en 1963, son hoy bloques fundamentales de arquitecturas de computación cuántica que han alcanzado tiempos de coherencia superiores a 10 segundos \cite{reglade2024}.
 
 
 \section{Fundamentos matemáticos y físicos}
@@ -166,6 +255,8 @@ El formalismo matemático del oscilador armónico cuántico combina elegancia te
 \end{itemize}
 
 El tratamiento de estos fundamentes es a un nivel básico, enfatizando la comprensión física de cada elemento y sus implicaciones para computación cuántica, sin profundizar en derivaciones matemáticas exhaustivas. Cada concepto se acompaña de referencias específicas a textos de referencia para quien desee mayor rigor. El objetivo es establecer el vocabulario y las herramientas que reaparecerán constantemente en las secciones posteriores: experimentales y de aplicaciones.
+
+
 
 \subsection*{El hamiltoniano del oscilador armónico cuántico}
 Pendiente
@@ -186,22 +277,156 @@ Pendiente
 \section{Realizaciones experimentales modernas (2020-2025)}
 El período 2020-2025 marca una transición cualitativa en la física del oscilador armónico cuántico: de validar predicciones fundamentales a implementarlo como componente tecnológico funcional.\\
 
-Esta sección documenta los experimentos más significativos organizados por plataforma física (circuitos superconductores, iones atrapados, sistemas optomecánicos, resonadores fonónicos), mostrando cómo cada predicción teórica de la Sección 4.2 —cuantización de energía, energía de punto cero, estados coherentes, negatividad de función de Wigner— ha sido verificada experimentalmente con alta precisión. 
-Los hitos incluyen códigos bosónicos superando el punto de equilibrio (break-even) en corrección de errores, estados gato de Schrödinger en osciladores mecánicos macroscópicos, y enfriamiento de nanopartículas levitadas a 0.04 fonones desde temperatura ambiente. Cada experimento citado utiliza tecnología desarrollada específicamente en los últimos cinco años, con referencias completas a papers de Nature, Science y Physical Review publicados entre 2022-2025.
+Esta sección documenta los experimentos más significativos organizados por plataforma física (circuitos superconductores, iones atrapados y sistemas optomecánicos), mostrando cómo cada predicción teórica de la Sección 4.2 —cuantización de energía, energía de punto cero, estados coherentes, negatividad de función de Wigner— ha sido verificada experimentalmente con alta precisión.\\ 
+
 
 \subsection*{Circuitos superconductores: el OAC como qubit lógico}
-Pendiente
+
+Los resonadores de microondas superconductores son realizaciones físicas directas del oscilador armónico cuántico. Estos dispositivos, operando a temperaturas cercanas al cero absoluto, se comportan exactamente como el OAC teórico: tienen niveles de energía cuantizados $E_n = \hbar\omega(n + \frac{1}{2})$ y se describen mediante los operadores de creación y aniquilación $\hat{a}^\dagger$ y $\hat{a}$ introducidos por Dirac.\\
+
+El período 2020-2025 ha marcado un hito histórico: por primera vez, experimentos lograron que qubits lógicos codificados en estos osciladores tuvieran \textbf{mayor tiempo de vida} que sus componentes físicos individuales. Este logro, llamado \textbf{superar el punto de equilibrio (break-even)}, demuestra que la corrección de errores cuánticos realmente funciona.\\
+
+Los experimentos 2020-2025 en circuitos superconductores han validado experimentalmente predicciones fundamentales del OAC:
+
+\begin{itemize}
+	\item Los estados de Fock $|n\rangle$ con número definido de fotones se pueden preparar y manipular
+	\item Los estados coherentes $|\alpha\rangle$ de Glauber se comportan exactamente como predijo la teoría
+	\item Las superposiciones de estados coherentes (cat states) exhiben propiedades cuánticas macroscópicas
+	\item La función de Wigner muestra negatividad genuina en estados no-clásicos
+	\item El espacio de Hilbert infinito del OAC permite estrategias de corrección de errores imposibles con qubits binarios
+\end{itemize}
+
+Muy importante, tres experimentos independientes \citep{sivak2023, ni2023, reglade2024} superaron el punto de equilibrio usando estrategias diferentes, todas basadas en aprovechar la estructura del OAC. Esto refleja que el oscilador armónico cuántico ha pasado de ser un modelo pedagógico a ser la plataforma física líder para computación cuántica tolerante a fallos.
+
+\subsubsection{Estados GKP superando break-even (Yale, 2023)} 
+
+\textbf{Qué hicieron:} El grupo de Yale \citep{sivak2023} codificó un qubit lógico usando estados especiales del oscilador armónico llamados \textbf{estados GKP} (Gottesman-Kitaev-Preskill). Estos estados son patrones periódicos en el espacio de fase del oscilador, construidos como superposiciones de estados coherentes.
+
+\textbf{Qué validaron del OAC:} Los estados GKP solo existen porque el oscilador tiene un espacio de Hilbert infinito-dimensional. Usan explícitamente los operadores $\hat{a}$ y $\hat{a}^\dagger$ para construir estas superposiciones especiales que protegen contra errores.
+
+\textbf{Resultado clave:} El qubit lógico vivió 2.0 ms, mientras que el resonador físico solo vivía 1.0 ms. Por primera vez, agregar corrección de errores \emph{mejoró} (no empeoró) la vida de la información cuántica.
+
+\textbf{Por qué importa:} Demuestra que el espacio infinito del OAC permite proteger información cuántica de formas imposibles con sistemas de solo dos niveles.
 
 
-\subsection*{Iones atrapados: modos motacionales como OAC de libro de texto}
-Pendiente
+\subsubsection{Códigos binomiales superando break-even (2023)}
+
+\textbf{Qué hicieron:} \cite{ni2023} codificaron un qubit lógico usando \textbf{estados de Fock} del oscilador (estados con número definido de fotones $|0\rangle, |1\rangle, |2\rangle, \ldots$) combinados con coeficientes binomiales especiales.
+
+\textbf{Qué validaron del OAC:} Los estados de Fock son los autoestados naturales del operador número $\hat{N} = \hat{a}^\dagger\hat{a}$. Este experimento demuestra que podemos controlar y manipular estos estados individuales del oscilador con precisión cuántica.
+
+\textbf{Resultado clave:} El qubit lógico alcanzó 0.6 ms de vida, superando los ~0.3 ms de sus componentes físicos.
+
+\textbf{Por qué importa:} Confirma que múltiples estrategias de codificación sobre el OAC pueden superar break-even, no solo una.
+
+\subsubsection{Cat qubit con 10 segundos de coherencia (Alice \& Bob / ENS Paris, 2024)}
+
+\textbf{Qué hicieron:} \cite{reglade2024} crearon un \textbf{cat qubit} — un qubit codificado en superposiciones de estados coherentes del oscilador. El nombre viene de que estos estados son análogos cuánticos al gato de Schrödinger: superposiciones de estados macroscópicamente distinguibles.
+
+\textbf{Qué validaron del OAC:} Estos experimentos confirman que los estados coherentes — introducidos por \cite{glauber1963a} para describir luz láser — realmente existen en osciladores físicos y se comportan como predijo la teoría.
+
+\textbf{Resultado clave:} Tiempo de vida contra errores de bit-flip mayor a \textbf{10 segundos}, una mejora de 10,000 veces respecto a intentos anteriores. 
+
+\textbf{Por qué importa:} Demuestra que el comportamiento predicho de estados coherentes (protección exponencial contra ciertos errores) se verifica experimentalmente. Diez segundos es un tiempo enorme en computación cuántica — suficiente para millones de operaciones.
 
 
-\subsection*{Sistemas optomecánicos: OAC macroscópicos en el régimen cuántico}
-Pendiente
+\subsection*{Iones atrapados: modos motacionales como osciladores armónicos}
+En la computación cuántica con iones atrapados, átomos individuales (típicamente Be$^+$, Ca$^+$, Yb$^+$, Sr$^+$) se confinan mediante campos electromagnéticos en el vacío. Cada ion tiene dos tipos de grados de libertad cuánticos:
 
-\subsection*{Sistemas fonónicos: computación cuántica acústica}
-Pendiente
+\begin{itemize}
+	\item \textbf{Estados internos}: Niveles electrónicos del átomo que funcionan como qubit (|0⟩ y |1⟩)
+	\item \textbf{Estados motacionales}: Vibración del ion en la trampa, que se comporta como un OAC con hamiltoniano $\hat{H} = \hbar\omega_m(\hat{a}^\dagger\hat{a} + \frac{1}{2})$
+\end{itemize}
+
+Los \textbf{modos motacionales} son cruciales porque actúan como \textbf{bus cuántico}: permiten que dos iones distantes interactúen intercambiando fonones (cuantos de vibración), exactamente como lo propusieron \cite{cirac1995}. Esta es la segunda arquitectura líder de computación cuántica junto con circuitos superconductores.\\
+
+La frecuencia típica de los modos motacionales es $\omega_m/2\pi \sim 1-10$ MHz, mucho más baja que transiciones electrónicas ($\sim 10^{14}$ Hz). Los experimentos 2020-2025 han demostrado control cuántico sin precedentes de estos osciladores armónicos vibratorios.\\
+
+Los experimentos con iones atrapados 2020-2025 han validado que los modos motacionales son osciladores armónicos cuánticos perfectos:
+
+\begin{itemize}
+	\item Los fonones se comportan como bosones idénticos con interferencia cuántica
+	\item Los estados coherentes de Glauber existen en vibraciones mecánicas, no solo en luz
+	\item El control cuántico de estos osciladores permite arquitecturas de computación cuántica escalables
+\end{itemize}
+
+Estos osciladores operan a frecuencias $\sim$ MHz (seis órdenes de magnitud más bajas que fotones ópticos), demostrando que la física del OAC es universal e independiente de la escala de energía. Los iones atrapados representan la segunda plataforma líder de computación cuántica comercial, validando que múltiples realizaciones físicas del OAC son viables para tecnología.
+
+
+
+\subsubsection{Interferencia cuántica de fonones individuales (NIST, 2024)}
+
+\textbf{Qué hicieron:} \cite{hou2024} demostraron el análogo del experimento de \cite{hong1987} clásico de óptica cuántica~\ref{sec:hong}, pero usando \textbf{fonones} (cuantos de vibración) en lugar de fotones. Dos modos motacionales de iones distintos se hicieron interferir en un ``beam splitter fonónico''.
+
+\textbf{Qué validaron del OAC:} Los fonones se comportan exactamente como excitaciones bosónicas del OAC:
+\begin{itemize}
+	\item Los estados de Fock de vibración $|0\rangle, |1\rangle, |2\rangle, \ldots$ existen y son manipulables
+	\item Los operadores $\hat{a}^\dagger$ y $\hat{a}$ crean y destruyen fonones individuales
+	\item Los fonones exhiben interferencia cuántica de dos partículas, como predicen los operadores bosónicos
+\end{itemize}
+
+\textbf{Resultado clave:} Observación de \textbf{bunching cuántico} — cuando dos fonones idénticos llegan simultáneamente al beam splitter, siempre salen juntos por el mismo puerto (nunca se separan). Este es el efecto HOM, firma de estadística bosónica.
+
+\textbf{Por qué importa:} Demuestra que vibraciones cuantizadas de iones se comportan idénticamente a fotones en sus propiedades cuánticas. Los fonones son realizaciones del OAC tan válidas como los fotones. Esto valida el uso de modos motacionales como bus cuántico en procesadores de iones.
+
+
+
+
+\subsection*{Sistemas optomecánicos: el OAC en escala mesoscópica}
+Los sistemas optomecánicos estudian la interacción entre luz y objetos mecánicos, donde la presión de radiación de fotones puede enfriar, controlar y medir el movimiento cuántico de osciladores mecánicos. A diferencia de los resonadores superconductores (fotones confinados) o iones atrapados (átomos individuales), estos experimentos demuestran el OAC en \textbf{objetos mesoscópicos} — sistemas que contienen miles de millones de átomos pero aún exhiben comportamiento cuántico.\\
+
+La pregunta fundamental que estos experimentos responden es: \textbf{¿Hasta qué escala de tamaño y masa funcionan las predicciones del OAC?} Los resultados 2020-2025 han sido muy llamativos: desde nanopartículas levitadas en el vacío hasta membranas de 16 microgramos, todos siguiendo exactamente $\hat{H} = \hbar\omega(\hat{a}^\dagger\hat{a} + \frac{1}{2})$.\\
+
+Los experimentos optomecánicos 2020-2025 han llevado las validaciones del OAC hacia el régimen mesoscópico:
+
+\begin{itemize}
+	\item La cuantización $E_n = \hbar\omega(n + \frac{1}{2})$ funciona en objetos con $10^{14}$ átomos
+	\item La energía de punto cero existe mediblemente en osciladores de microgramos
+	\item Los estados coherentes y cat states de Glauber pueden prepararse en membranas macroscópicas
+	\item El estado fundamental es alcanzable sin criogenia mediante aislamiento suficiente
+
+\end{itemize}
+
+Estos resultados responden una pregunta fundamental: \textbf{¿Hay un límite de tamaño para la mecánica cuántica?} La respuesta experimental es no — el límite es de \emph{decoherencia}, no de masa. Si un oscilador puede aislarse suficientemente de su entorno, exhibirá comportamiento cuántico independientemente de su tamaño, validando que el OAC es una descripción universal aplicable desde electrones hasta objetos macroscópicos.
+
+\subsubsection{Enfriamiento cuántico a temperatura ambiente (ETH Zurich, 2025)}
+
+\textbf{Qué hicieron:} \cite{dania2025} enfriaron una nanopartícula de sílice levitada ópticamente en el vacío hasta alcanzar el estado fundamental del oscilador — específicamente, $\langle n \rangle = 0.04$ fonones — trabajando \textbf{a temperatura ambiente} (300 K) en lugar de requerir criogenia.
+
+\textbf{Qué validaron del OAC:} 
+\begin{itemize}
+	\item La cuantización de energía $E_n = \hbar\omega(n + \frac{1}{2})$ se aplica a objetos macroscópicos, no solo sistemas microscópicos
+	\item La energía de punto cero $E_0 = \frac{1}{2}\hbar\omega$ existe en osciladores mesoscópicos
+	\item El número promedio de fonones $\langle n \rangle$ es medible y controlable incluso cerca del estado fundamental
+\end{itemize}
+
+\textbf{Resultado clave:} $\langle n \rangle = 0.04 \pm 0.01$ fonones — el oscilador mecánico está $96\%$ del tiempo en su estado fundamental $|0\rangle$, a pesar de que la energía térmica a 300 K es $k_B T \sim 10^{14}$ veces mayor que $\hbar\omega$.
+
+\textbf{Por qué importa:} 
+\begin{enumerate}
+	\item Demuestra que la física cuántica funciona a temperatura ambiente si el oscilador está suficientemente aislado
+	\item Valida la existencia de energía de punto cero en objetos ``visibles''
+	\item Plantea alternativas a sensores cuánticos sin criogenia
+\end{enumerate}
+
+\subsubsection{Estados gato de Schrödinger en 16 microgramos (ETH Zurich, 2023)}
+
+\textbf{Qué hicieron:} \cite{bild2023} crearon \textbf{estados gato de Schrödinger} — superposiciones cuánticas de dos estados coherentes macroscópicamente distinguibles — en una membrana mecánica de silicio de \textbf{16 microgramos}. Esta membrana contiene aproximadamente $10^{14}$ átomos de silicio moviéndose coherentemente en una superposición cuántica.\\
+
+\textbf{Qué validaron del OAC:} 
+\begin{itemize}
+	\item Los estados coherentes $|\alpha\rangle$ introducidos por Glauber existen en osciladores mecánicos macroscópicos
+	\item Se pueden crear superposiciones cuánticas de estados macroscópicamente distinguibles (separación $\sim 100$ veces el estado fundamental)
+	\item El principio de superposición cuántica se aplica a objetos con $10^{14}$ átomos
+\end{itemize}
+
+
+\textbf{Por qué importa:} 
+\begin{enumerate}
+	\item Valida el escenario del gato de Schrödinger en un objeto casi macroscópico
+	\item Demuestra que no hay límite de masa para comportamiento cuántico — solo límite de aislamiento del entorno
+\end{enumerate}
+
 
 
 \section{Aplicaciones en computación cuántica}
@@ -357,6 +582,8 @@ Las Conclusiones es otra parte muy IMPORTANTE de la memoria. Deben ser muy clara
 
 \bibitem[Hou et al.(2024)]{hou2024} Hou, P.-Y., Nguyen, J.J., Kautz, L., Becker, B., Brocourt, L., Patel, R., Johansen, J., Sheremet, A. y Tan, T.R. (2024) Coherent coupling and non-destructive measurement of trapped-ion mechanical oscillators. \textit{Nature Physics}, \textbf{20}, 702--707. DOI: 10.1038/s41567-024-02599-6
 
+\bibitem[Hong et al.(1987)]{hong1987} Hong, C.K., Ou, Z.Y. y Mandel, L. (1987) Measurement of subpicosecond time intervals between two photons by interference. \textit{Physical Review Letters}, \textbf{59}(18), 2044--2046. DOI: 10.1103/PhysRevLett.59.2044
+
 \bibitem[Burd et al.(2024)]{burd2024} Burd, S.C., Srinivas, R., Knaack, H.M., Ge, W., Wilson, A.C., Wineland, D.J., Leibfried, D., Bollinger, J.J., Allcock, D.T.C. y Slichter, D.H. (2024) Squeezing-amplified interactions in quantum harmonic oscillators. \textit{PRX Quantum}, \textbf{5}, 020314. DOI: 10.1103/PRXQuantum.5.020314
 
 \bibitem[Park et al.(2024)]{park2024} Park, K., Kim, P. y Jeong, H. (2024) Experimental realization of entangled coherent states in two-dimensional harmonic oscillators of a trapped ion. \textit{Scientific Reports}, \textbf{14}, 7359. DOI: 10.1038/s41598-024-57391-6
@@ -391,6 +618,13 @@ Las Conclusiones es otra parte muy IMPORTANTE de la memoria. Deben ser muy clara
 
 \bibitem[Alexander et al.(2025)]{alexander2025} Alexander, R.N., Yong, J.C., Bersin, E., Choi, H., Huber, J., Jaffe, M., Kaplan, A., Lauk, N., Ledford, J., Lo, A., Miller, S.A., Mondal, S., Phillips, M., Pooser, R., Spiropulu, M. y Verdon, G. (2025) Scaling and networking a modular photonic quantum computer. \textit{Nature}.
 
+%% BIBLIOGRAFÍA DEL APÉNDICE A
+
+\bibitem[Einstein(1907)]{einstein1907} Einstein, A. (1907) Die Plancksche Theorie der Strahlung und die Theorie der spezifischen Wärme. \textit{Annalen der Physik}, \textbf{22}, 180--190. DOI: 10.1002/andp.19063270110
+
+\bibitem[Debye(1912)]{debye1912} Debye, P. (1912) Zur Theorie der spezifischen Wärmen. \textit{Annalen der Physik}, \textbf{39}(4), 789--839. DOI: 10.1002/andp.19123441404
+
+\bibitem[Dulong \& Petit(1819)]{dulong1819} Dulong, P.L. y Petit, A.T. (1819) Recherches sur quelques points importans de la Théorie de la Chaleur. \textit{Annales de Chimie et de Physique}, \textbf{10}, 395--413.
 
 \end{thebibliography}
 %\bibliographystyle{plain} 
@@ -400,33 +634,393 @@ Las Conclusiones es otra parte muy IMPORTANTE de la memoria. Deben ser muy clara
 \appendix
 \chapter{Apéndices}
 
-\subsection{Expresión Taylor} \label{sec:taylor}
+\section{Expresión Taylor} \label{sec:taylor}
 La expansión de Taylor de un potencial $V(x)$ alrededor de un mínimo en $x_0$ es:
 \[
 V(x) = V(x_0) + V'(x_0)(x - x_0) + \frac{1}{2}V''(x_0)(x - x_0)^2 + \cdots
 \]
 Dado que $V'(x_0) = 0$ en el mínimo, el término dominante para pequeñas oscilaciones es cuadrático: $V(x) \approx V(x_0) + \frac{1}{2}V''(x_0)(x - x_0)^2$, que es precisamente la forma del potencial del oscilador armónico con constante efectiva $k = V''(x_0)$.
 
+\section{El modelo de Einstein para el calor específico de sólidos} \label{sec:einstein}
+
+\subsection*{El problema clásico: Ley de Dulong-Petit}
+
+La física clásica predecía que el calor específico molar de un sólido debería ser \textbf{constante}:
+
+\[
+C_V^{\text{clásico}} = 3R \approx 25 \text{ J/(mol·K)}
+\]
+
+donde $R$ es la constante de los gases. Este resultado (ley de Dulong-Petit \citep{dulong1819}) funcionaba bien a temperatura ambiente, pero \textbf{fallaba completamente a bajas temperaturas}: los experimentos mostraban que $C_V \to 0$ cuando $T \to 0$, en contradicción directa con la predicción clásica.
+
+\subsection*{El modelo cuántico de Einstein (1907)}
+
+Einstein \citep{einstein1907} modeló el sólido cristalino como \textbf{N átomos, cada uno vibrando como 3 osciladores armónicos cuánticos independientes} (uno por cada dirección $x$, $y$, $z$), todos con la misma frecuencia característica $\omega_0$.
+
+\textbf{Energía de cada oscilador cuántico:}
+
+\[
+E_n = \hbar\omega_0\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+
+\textbf{Energía promedio por oscilador} en equilibrio térmico a temperatura $T$:
+
+\[
+\langle E \rangle = \frac{\hbar\omega_0}{2} + \frac{\hbar\omega_0}{e^{\hbar\omega_0/k_B T} - 1}
+\]
+
+\textbf{Calor específico de Einstein:}
+
+Definiendo la \textbf{temperatura de Einstein} $\Theta_E = \hbar\omega_0/k_B$, el calor específico molar resulta:
+
+\[
+C_V^{\text{Einstein}} = 3R \left(\frac{\Theta_E}{T}\right)^2 \frac{e^{\Theta_E/T}}{(e^{\Theta_E/T} - 1)^2}
+\]
+
+\subsection*{Predicciones del modelo}
+
+\textbf{Alta temperatura ($T \gg \Theta_E$):} Recupera la ley clásica
+
+\[
+C_V \approx 3R
+\]
+
+\textbf{Baja temperatura ($T \ll \Theta_E$):} Decaimiento exponencial
+
+\[
+C_V \approx 3R \left(\frac{\Theta_E}{T}\right)^2 e^{-\Theta_E/T} \xrightarrow{T \to 0} 0
+\]
+
+Este comportamiento exponencial reproduce cualitativamente las observaciones experimentales: el calor específico \textbf{se anula cuando $T \to 0$}, resolviendo la paradoja de la teoría clásica.
+
+\subsection*{Significado físico}
+
+A bajas temperaturas ($k_B T \ll \hbar\omega_0$), la energía térmica es insuficiente para excitar los osciladores cuánticos al siguiente nivel de energía. Los átomos quedan ``congelados'' en sus estados fundamentales, contribuyendo cada vez menos a la capacidad calorífica del sólido. Este fue el \textbf{primer uso exitoso de la cuantización aplicada a la materia}, validando la hipótesis cuántica más allá de la radiación del cuerpo negro.
+
+\textbf{Nota:} Aunque revolucionario, el modelo predice decaimiento exponencial a bajas temperaturas, mientras que los experimentos muestran $C_V \propto T^3$ (ley de Debye). Peter Debye \citep{debye1912} refinó el modelo en 1912 considerando un espectro continuo de frecuencias de oscilación (fonones), obteniendo el comportamiento correcto.
+
+\section{La mecánica matricial de Heisenberg y el oscilador armónico} \label{sec:heisenberg}
+
+\subsection*{La idea revolucionaria de Heisenberg (1925)}
+
+Werner Heisenberg propuso en su paper ``Über quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen'' \cite{heisenberg1925} construir una mecánica basada \textbf{exclusivamente en cantidades observables}: frecuencias de transición e intensidades espectrales. Su idea central fue \textbf{reemplazar números por arreglos de números} (matrices) que representan transiciones entre estados cuánticos.
+
+Para posición y momento, Heisenberg escribió arreglos $x(n,m)$ y $p(n,m)$ donde los índices $n$ y $m$ representan estados inicial y final. La multiplicación de estas cantidades \textbf{no es conmutativa}:
+
+\[
+x \cdot p \neq p \cdot x
+\]
+
+
+\subsection*{El oscilador armónico en mecánica matricial}
+
+El hamiltoniano del oscilador armónico es:
+
+\[
+H = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2
+\]
+
+Born, Heisenberg y Jordan \cite{bornheisenberg1926} resolvieron este sistema usando únicamente álgebra de matrices y la relación de conmutación. \textbf{Sin resolver ninguna ecuación diferencial}, derivaron el espectro de energía:
+
+\[
+E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+
+Este resultado incluía automáticamente la \textbf{energía de punto cero} $E_0 = \frac{1}{2}\hbar\omega$, una predicción puramente cuántica sin análogo clásico.
+
+\subsection*{Elementos de matriz y frecuencias de transición}
+
+La mecánica matricial conecta directamente con cantidades observables. Las frecuencias de transición entre niveles están dadas por:
+
+\[
+\omega_{nm} = \frac{E_n - E_m}{\hbar} = \omega(n - m)
+\]
+
+Para el oscilador armónico, todas las transiciones adyacentes ($n \to n-1$) tienen la misma frecuencia $\omega$, reproduciendo el espectro de absorción/emisión observado experimentalmente.
+
+\section{La formalización de Born y Jordan: matrices y el espectro del oscilador armónico} \label{sec:born}
+
+\subsection*{El reconocimiento de la estructura matricial}
+
+Max Born reconoció que los arreglos de números de Heisenberg $x(n,m)$ y $p(n,m)$ eran \textbf{matrices} — objetos matemáticos con reglas específicas de multiplicación. La característica fundamental de las matrices es que su multiplicación \textbf{no es conmutativa}: en general, $AB \neq BA$. Esta propiedad matemática era exactamente lo que se necesitaba para formalizar la mecánica de Heisenberg.
+
+\subsection*{La relación de conmutación canónica}
+
+Born y Jordan \citep{born1925} formalizaron la no-conmutatividad mediante el \textbf{conmutador}:
+
+\[
+[x, p] = xp - px = i\hbar \mathbb{I}
+\]
+
+donde $\mathbb{I}$ es la matriz identidad y $\hbar = h/2\pi$ es la constante de Planck reducida. Esta relación es el \textbf{postulado fundamental de la mecánica cuántica} y contiene implícitamente el principio de incertidumbre: si dos observables no conmutan, no pueden tener valores simultáneos definidos.
+
+\subsection*{El espectro del oscilador armónico}
+
+En su segundo paper \citep{bornheisenberg1926}, Born, Heisenberg y Jordan desarrollaron un método algebraico puramente matricial para resolver el oscilador armónico. Introdujeron operadores auxiliares (que hoy llamamos operadores de creación $a^\dagger$ y aniquilación $a$) que satisfacen:
+
+\[
+[a, a^\dagger] = 1
+\]
+
+Expresando el hamiltoniano como:
+
+\[
+H = \hbar\omega\left(a^\dagger a + \frac{1}{2}\right)
+\]
+
+derivaron el espectro de energía completo \textbf{sin resolver ecuaciones diferenciales}:
+
+\[
+E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+
+Este resultado incluye automáticamente la \textbf{energía de punto cero} $E_0 = \frac{1}{2}\hbar\omega$, una predicción puramente cuántica sin análogo clásico, consecuencia directa de la relación de conmutación.
+
+
+\section{La mecánica ondulatoria de Schrödinger y el oscilador armónico} \label{sec:schrodinger}
+
+\subsection*{Un enfoque radicalmente diferente}
+
+Erwin Schrödinger desarrolló en 1926 una formulación completamente diferente basada en \textbf{funciones de onda} y \textbf{ecuaciones diferenciales}. Su ecuación fundamental para estados estacionarios es:
+
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi(x) = E\psi(x)
+\]
+
+donde $\psi(x)$ es la función de onda, $V(x)$ es el potencial, y $E$ es la energía.
+
+\subsection*{Aplicación al oscilador armónico}
+
+En su segunda comunicación \citep{schrodinger1926b}, Schrödinger aplicó su ecuación al oscilador armónico con potencial $V(x) = \frac{1}{2}m\omega^2 x^2$:
+
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2 x^2 \psi(x) = E\psi(x)
+\]
+
+Esta es una ecuación diferencial de segundo orden cuya solución requiere técnicas matemáticas sofisticadas.
+
+\subsection*{Soluciones: Polinomios de Hermite}
+
+Schrödinger demostró que las soluciones normalizables de esta ecuación tienen la forma:
+
+\[
+\psi_n(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^n n!}} H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right) e^{-\frac{m\omega x^2}{2\hbar}}
+\]
+
+donde $H_n(x)$ son los \textbf{polinomios de Hermite}, una familia de polinomios ortogonales bien conocidos en matemáticas. Los primeros son:
+
+\begin{align*}
+	H_0(x) &= 1 \\
+	H_1(x) &= 2x \\
+	H_2(x) &= 4x^2 - 2 \\
+	H_3(x) &= 8x^3 - 12x
+\end{align*}
+
+Cada función de onda $\psi_n(x)$ tiene exactamente $n$ nodos (puntos donde $\psi = 0$) y paridad bien definida: par si $n$ es par, impar si $n$ es impar.
+
+\subsection*{El espectro de energía}
+
+Al resolver la ecuación diferencial, Schrödinger obtuvo exactamente el mismo espectro que Born-Jordan \citep{born1925}:
+
+\[
+E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+
+Este acuerdo confirmó que las dos formulaciones —mecánica matricial y mecánica ondulatoria— eran \textbf{matemáticamente equivalentes}, aunque conceptualmente muy diferentes.
+
+
+\section{El método algebraico de Dirac: operadores escalera} \label{sec:dirac}
+
+\subsection*{Los operadores escalera}
+
+Dirac introdujo dos operadores fundamentales, hoy llamados \textbf{operadores de aniquilación} ($\hat{a}$) y \textbf{creación} ($\hat{a}^\dagger$), definidos en términos de posición y momento:
+
+\[
+\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x} + \frac{i}{m\omega}\hat{p}\right)
+\]
+
+\[
+\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x} - \frac{i}{m\omega}\hat{p}\right)
+\]
+
+A partir de la relación de conmutación canónica $[\hat{x}, \hat{p}] = i\hbar$, se demuestra que estos operadores satisfacen:
+
+\[
+[\hat{a}, \hat{a}^\dagger] = 1
+\]
+
+Esta simple relación de conmutación contiene toda la física del oscilador armónico.
+
+\subsection*{Factorización del hamiltoniano}
+
+El hamiltoniano del oscilador armónico se puede reescribir como:
+
+\[
+\hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right)
+\]
+
+Se define el \textbf{operador número} $\hat{N} = \hat{a}^\dagger\hat{a}$, por lo que:
+
+\[
+\hat{H} = \hbar\omega\left(\hat{N} + \frac{1}{2}\right)
+\]
+
+Los autovalores de $\hat{N}$ determinan directamente las energías permitidas.
+
+\subsection*{Derivación algebraica del espectro}
+
+Usando únicamente las propiedades algebraicas de los operadores, Dirac demostró que:
+
+\begin{itemize}
+	\item Si $|n\rangle$ es autoestado de $\hat{N}$ con autovalor $n$, entonces $\hat{a}|n\rangle$ es autoestado con autovalor $n-1$ (operador de \textbf{descenso})
+	\item Similarmente, $\hat{a}^\dagger|n\rangle$ es autoestado con autovalor $n+1$ (operador de \textbf{ascenso})
+	\item Existe un estado mínimo $|0\rangle$ (vacío) tal que $\hat{a}|0\rangle = 0$
+	\item Por lo tanto, $n = 0, 1, 2, 3, \ldots$ (enteros no negativos)
+\end{itemize}
+
+El espectro de energía resulta:
+
+\[
+E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+
+\section{Estados coherentes de Glauber: el puente entre lo clásico y lo cuántico} \label{sec:glauber}
+
+\subsection*{El problema de los estados cuánticos de la luz}
+
+En la década de 1960, la invención del láser planteó una pregunta fundamental: ¿cómo describir cuánticamente un haz de luz que se comporta de manera tan clásica y predecible? Los estados de Fock $|n\rangle$ (número definido de fotones) no eran adecuados porque exhiben fluctuaciones cuánticas que no corresponden con las propiedades del láser. Se necesitaba un nuevo tipo de estado cuántico.
+
+\subsection*{Definición de estados coherentes}
+
+Roy Glauber introdujo en 1963 \citep{glauber1963a, glauber1963b} los \textbf{estados coherentes} $|\alpha\rangle$ como los autoestados del operador de aniquilación:
+
+\[
+\hat{a}|\alpha\rangle = \alpha|\alpha\rangle
+\]
+
+donde $\alpha$ es un número complejo arbitrario (no un operador). Esta definición aparentemente simple tiene consecuencias profundas.
+
+Independientemente, E.C.G. Sudarshan \citep{sudarshan1963} desarrolló una representación equivalente usando una función de distribución cuasi-probabilística sobre estados coherentes, ahora llamada \textbf{representación P de Glauber-Sudarshan}.
+
+\subsection*{Expresión en términos de estados de Fock}
+
+Los estados coherentes se pueden expandir en la base de estados número:
+
+\[
+|\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle
+\]
+
+Los coeficientes siguen una \textbf{distribución de probabilidad poissoniana}: la probabilidad de encontrar exactamente $n$ fotones es:
+
+\[
+P(n) = |\langle n|\alpha\rangle|^2 = e^{-|\alpha|^2} \frac{|\alpha|^{2n}}{n!}
+\]
+
+con valor promedio $\langle n \rangle = |\alpha|^2$ y desviación estándar $\Delta n = \sqrt{|\alpha|^2}$.
+
+\subsection*{Propiedades fundamentales}
+
+Los estados coherentes poseen características únicas que los hacen el \textbf{análogo cuántico más cercano al comportamiento clásico}:
+
+\textbf{1. Incertidumbre mínima:} Saturan el principio de incertidumbre de Heisenberg:
+
+\[
+\Delta x \cdot \Delta p = \frac{\hbar}{2}
+\]
+
+Las incertidumbres en posición y momento son iguales e independientes de $\alpha$.
+
+\textbf{2. Evolución temporal clásica:} Los valores esperados de posición y momento evolucionan exactamente como las trayectorias clásicas:
+
+\[
+\langle \hat{x} \rangle(t) = \langle \hat{x} \rangle(0) \cos(\omega t) + \frac{\langle \hat{p} \rangle(0)}{m\omega} \sin(\omega t)
+\]
+
+\textbf{3. Operador desplazamiento:} Se generan aplicando el operador de desplazamiento al vacío:
+
+\[
+|\alpha\rangle = \hat{D}(\alpha)|0\rangle, \quad \hat{D}(\alpha) = e^{\alpha\hat{a}^\dagger - \alpha^*\hat{a}}
+\]
+
+\textbf{4. No son ortogonales:} A diferencia de los estados de Fock, estados coherentes con diferentes $\alpha$ no son ortogonales:
+
+\[
+|\langle\alpha|\beta\rangle|^2 = e^{-|\alpha-\beta|^2}
+\]
+
+
+\section{¿Qué es el efecto Hong-Ou-Mandel?} \label{sec:hong}
+
+\subsection*{Definición del efecto}
+
+El \textbf{efecto Hong-Ou-Mandel} (HOM) \citep{hong1987} es un fenómeno de interferencia cuántica de dos fotones que demuestra la naturaleza bosónica de la luz. Cuando dos fotones idénticos (misma frecuencia, polarización y momento) llegan simultáneamente a un beam splitter 50:50 desde dos puertos de entrada diferentes, exhiben un comportamiento que viola la intuición clásica.
+
+\subsection*{Predicción clásica vs. cuántica}
+
+\textbf{Predicción clásica:} Los fotones deberían comportarse como partículas independientes. Al llegar al beam splitter, cada fotón tiene 50\% de probabilidad de transmitirse y 50\% de reflejarse. Por lo tanto:
+\begin{itemize}
+	\item Probabilidad de salir juntos por el mismo puerto: 50\%
+	\item Probabilidad de salir separados (uno por cada puerto): 50\%
+\end{itemize}
+
+\textbf{Predicción cuántica:} Los fotones idénticos \textbf{siempre salen juntos} por el mismo puerto. La probabilidad de que salgan separados (uno por cada puerto de salida) es exactamente \textbf{cero}.
+
+\subsection*{¿Por qué ocurre?}
+
+El efecto surge de la \textbf{interferencia cuántica de amplitudes de probabilidad}. Hay dos procesos cuánticos indistinguibles que llevan al mismo estado final ``fotones separados'':
+
+\textbf{Proceso 1:} Fotón A se transmite, fotón B se refleja
+
+\textbf{Proceso 2:} Fotón A se refleja, fotón B se transmite
+
+Para fotones idénticos (bosones), estas amplitudes tienen un \textbf{signo relativo} que produce interferencia destructiva:
+
+\[
+A_{\text{total}} = A_{\text{proceso 1}} + A_{\text{proceso 2}} = 0
+\]
+
+Las amplitudes se cancelan exactamente, eliminando la probabilidad de que los fotones salgan separados. Este es el fenómeno de \textbf{bunching cuántico} o \textbf{coalescencia de fotones}.
+
+\subsection*{Firma experimental}
+
+El experimento mide \textbf{coincidencias} — detecciones simultáneas en ambos puertos de salida — en función del retraso temporal $\tau$ entre los fotones de entrada.
+
+\begin{itemize}
+	\item Para $\tau \gg 0$ (fotones muy desincronizados): Coincidencias clásicas, tasa constante
+	\item Para $\tau \approx 0$ (fotones simultáneos): Coincidencias desaparecen — aparece un \textbf{``dip'' (valle)} en la curva
+	\item El ancho del dip es del orden del tiempo de coherencia de los fotones ($\sim$ picosegundos)
+\end{itemize}
+
+La profundidad del dip mide la \textbf{indistinguibilidad} de los fotones: dip perfecto (100\%) indica fotones perfectamente idénticos.
+
+\subsection*{El experimento original (1987)}
+
+Hong, Ou y Mandel \cite{hong1987} realizaron la primera demostración experimental usando fotones generados por conversión paramétrica descendente en un cristal no-lineal. Midieron coincidencias con resolución de picosegundos, observando el dip característico cuando los fotones llegaban simultáneamente.
+
+\textbf{Resultado histórico:} Visibilidad del dip $>90\%$, confirmando inequívocamente el comportamiento cuántico predicho.
+
+\subsection*{Significado fundamental}
+
+El efecto HOM es importante porque:
+
+\begin{enumerate}
+	\item \textbf{Interferencia de dos partículas}: Demuestra interferencia cuántica entre dos fotones distintos, no solo auto-interferencia de una partícula
+	\item \textbf{Estadística bosónica}: Es consecuencia directa de que los fotones son bosones idénticos
+	\item \textbf{Indistinguibilidad cuántica}: Prueba que partículas idénticas son fundamentalmente indistinguibles en mecánica cuántica
+	\item \textbf{No tiene análogo clásico}: Es imposible explicar el efecto con teorías de ondas clásicas
+\end{enumerate}
+
+\subsection*{Aplicaciones}
+
+El efecto HOM es fundamental en:
+
+\begin{itemize}
+	\item \textbf{Computación cuántica fotónica}: Base de puertas cuánticas lineales (linear optical quantum computing)
+	\item \textbf{Criptografía cuántica}: Verificación de fuentes de fotones individuales
+	\item \textbf{Generación de entrelazamiento}: Entrelazamiento por medición proyectiva usando interferencia HOM
+	\item \textbf{Metrología cuántica}: Mediciones de tiempo con precisión sub-picosegundo
+	\item \textbf{Caracterización de fuentes}: Test estándar para calidad de fuentes de fotones únicos
+\end{itemize}
+
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
