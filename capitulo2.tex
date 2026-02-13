@@ -1,0 +1,39 @@
+\chapter{Contexto y estado de la cuestión}\label{contexto}
+El oscilador armónico cuántico ocupa una posición central en el desarrollo histórico y conceptual de la mecánica cuántica. Su relevancia no se limita a un modelo matemático idealizado, sino que emerge de manera natural en la descripción de una amplia variedad de sistemas físicos, desde la radiación electromagnética hasta las vibraciones de la materia condensada. El origen de este modelo se remonta a los primeros intentos por comprender fenómenos que escapaban a la física clásica, particularmente a comienzos del siglo XX.
+
+El punto de partida puede situarse en el trabajo de Planck sobre la radiación del cuerpo negro \citep{planck1901}. Al analizar la distribución espectral de la energía emitida por un cuerpo caliente, Planck constató que las leyes clásicas eran incapaces de reproducir los resultados experimentales. Para resolver esta discrepancia, introdujo la hipótesis de que el intercambio de energía entre la radiación y la materia no es continuo, sino que ocurre en cantidades discretas. Planck modeló la materia como un conjunto de resonadores armónicos de frecuencia $\nu$, cuya energía solo puede tomar valores discretos dados por
+\[
+E_n = n h \nu .
+\]
+Aunque inicialmente esta cuantización fue concebida como un artificio matemático, su éxito al reproducir el espectro observado reveló la necesidad de abandonar la descripción clásica continua de la energía. Este planteamiento constituye el antecedente directo del oscilador armónico cuántico y marca el inicio de la física cuántica.
+
+La hipótesis de Planck adquirió un significado físico más profundo con el trabajo de Einstein sobre el calor específico de los sólidos \citep{einstein1907}. Los experimentos mostraban que, a bajas temperaturas, el calor específico disminuye drásticamente, en contradicción con la ley clásica de Dulong y Petit \citep{dulong1819}. Einstein explicó este comportamiento suponiendo que los átomos de un sólido vibran alrededor de posiciones de equilibrio y pueden describirse como osciladores armónicos independientes con energía cuantizada. En este marco, la energía media de un oscilador de frecuencia $\nu$ a temperatura $T$ viene dada por
+\[
+\langle E \rangle = \frac{h\nu}{e^{h\nu/kT}-1}.
+\]
+Este resultado permitió reproducir correctamente el comportamiento térmico observado y constituyó la primera aplicación explícita del oscilador armónico cuántico como un sistema físico real. A pesar de sus limitaciones —como la suposición de una única frecuencia característica—, el modelo de Einstein estableció de forma clara que la cuantización de los modos vibracionales es esencial para describir la materia a nivel microscópico.
+
+La formulación matemática rigurosa del oscilador armónico cuántico se consolidó con el desarrollo de la mecánica cuántica en la década de 1920. En particular, Schrödinger introdujo una descripción ondulatoria de los sistemas físicos en la que la cuantización emerge como un problema de autovalores \citep{schrodinger1926a, schrodinger1926b}. En este enfoque, los estados estacionarios del sistema se obtienen resolviendo la ecuación
+\[
+\hat{H}\psi = E\psi,
+\]
+donde $\hat{H}$ es el operador hamiltoniano. Para el potencial armónico, la exigencia de soluciones normalizables conduce de manera natural a un espectro discreto de energías y a funciones de onda bien definidas. La cuantización deja así de ser una hipótesis adicional y pasa a entenderse como una consecuencia directa de la estructura matemática de la teoría.
+
+De forma complementaria, Heisenberg propuso una reformulación radical de la mecánica cuántica basada exclusivamente en magnitudes observables \citep{heisenberg1925}. En lugar de describir trayectorias clásicas, Heisenberg introdujo cantidades asociadas a transiciones entre estados energéticos, relacionadas por la condición de frecuencia de Bohr–Einstein \citep{bohr1913}
+\[
+\nu_{mn} = \frac{E_m - E_n}{h}.
+\]
+Estas magnitudes obedecen reglas de combinación no conmutativas, reflejadas en relaciones del tipo $AB \neq BA$, sentando las bases de la mecánica matricial. Aunque el oscilador armónico no aparece explícitamente como un ejemplo central en este trabajo, su estructura algebraica se convertiría posteriormente en uno de los sistemas paradigmáticos para ilustrar estas ideas.
+
+La formulación algebraica de la mecánica cuántica alcanzó su forma más sistemática en el trabajo de Born, Heisenberg y Jordan \citep{bornheisenberg1926}. En este marco, las magnitudes físicas se representan mediante operadores que satisfacen relaciones de conmutación fundamentales, en particular
+\[
+[q,p] = i\hbar.
+\]
+A partir de esta relación se demuestra que el problema dinámico puede formularse como un problema de valores propios del operador hamiltoniano. Para el oscilador armónico, este formalismo permite derivar de manera directa el espectro energético discreto y proporciona una base matemática sólida para la introducción posterior de operadores de creación y aniquilación, que simplifican notablemente su tratamiento.
+
+Finalmente, Dirac extendió el principio de cuantización al propio campo electromagnético, mostrando que cada modo del campo puede describirse como un oscilador armónico cuántico \citep{dirac1927}. Al cuantizar el campo, Dirac logró explicar de forma natural procesos como la emisión y absorción de radiación, así como la emisión espontánea, sin recurrir a postulados adicionales. Esta visión consolidó al oscilador armónico cuántico como un elemento estructural de la teoría cuántica de campos y como un modelo universal para describir grados de libertad cuánticos.
+
+En conjunto, estos desarrollos muestran que el oscilador armónico cuántico no es un modelo accesorio, sino un sistema fundamental que atraviesa toda la construcción de la mecánica cuántica. Desde sus orígenes en la cuantización de la energía hasta su formulación algebraica y su aplicación a campos cuánticos, el oscilador armónico constituye el escenario natural para el cálculo de niveles de energía y autofunciones, objetivo central de este trabajo, y el punto de partida para múltiples aplicaciones físicas contemporáneas.
+
+En síntesis, el recorrido histórico y conceptual presentado pone de manifiesto que el oscilador armónico cuántico emerge de manera recurrente en la construcción de la mecánica cuántica, desde la cuantización inicial de la energía propuesta por Planck, pasando por su interpretación física en los sólidos de Einstein, hasta su formulación matemática rigurosa en los marcos ondulatorio y algebraico desarrollados por Schrödinger, Heisenberg, Born, Jordan y Dirac. Este sistema no solo permitió establecer conceptos fundamentales como la cuantización del espectro energético, las relaciones de conmutación y la estructura operatorial de la teoría, sino que se consolidó como un modelo universal para describir grados de libertad cuánticos tanto de la materia como de los campos. En este contexto, resulta natural y necesario abordar de manera explícita el cálculo cuántico del oscilador armónico, obteniendo sus niveles de energía y autofunciones, ya que dicho análisis constituye el núcleo conceptual y técnico sobre el cual se apoyan las aplicaciones físicas que se discutirán posteriormente.
+
