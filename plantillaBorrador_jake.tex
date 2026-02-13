@@ -150,7 +150,52 @@ Para ello, se introduce brevemente el oscilador armónico clásico como punto de
 Finalmente, se comentan algunas aplicaciones físicas relevantes que ilustran el alcance de los resultados obtenidos.
 
 \section{El oscilador armónico clásico}
+El oscilador armónico clásico constituye el modelo paradigmático del movimiento periódico en física. Describe el comportamiento de una partícula sometida a una fuerza restauradora proporcional y opuesta a su desplazamiento respecto de una posición de equilibrio estable. Este sistema no solo aparece en el estudio de masas unidas a resortes ideales, sino que representa una aproximación universal para describir sistemas físicos en las proximidades de un mínimo de energía potencial.
+
+La importancia del oscilador armónico radica en su carácter general: cualquier sistema cuya energía potencial posea un mínimo estable puede aproximarse localmente mediante una función cuadrática. Esta propiedad explica su presencia en múltiples áreas de la física, desde la mecánica clásica hasta la teoría cuántica de campos. En particular, el formalismo matemático desarrollado para el oscilador armónico clásico servirá como punto de partida para su formulación cuántica, donde las variables dinámicas serán promovidas a operadores y la energía adquirirá una estructura discreta.
+
 \subsection{Descripción física y potencial armónico}
+En su forma más simple, el sistema puede representarse como una partícula de masa $m$ unida a un resorte ideal de constante elástica $k$. La dinámica está gobernada por la ley de Hooke,
+
+\[
+F = -kx,
+\]
+
+donde $x$ es el desplazamiento respecto del equilibrio. Aplicando la segunda ley de Newton se obtiene
+
+\[
+m\ddot{x} + kx = 0.
+\]
+
+Definiendo la frecuencia angular natural del sistema como
+
+\[
+\omega = \sqrt{\frac{k}{m}},
+\]
+
+la ecuación de movimiento adopta la forma
+
+\[
+\ddot{x} + \omega^2 x = 0,
+\]
+
+cuya solución describe un movimiento periódico.
+
+Desde el punto de vista energético, la fuerza restauradora deriva de un potencial cuadrático
+
+\[
+V(x) = \frac{1}{2} k x^2 = \frac{1}{2} m\omega^2 x^2,
+\]
+
+cuya forma parabólica caracteriza al oscilador armónico. Más generalmente, cualquier potencial físico $V(x)$ con un mínimo estable puede aproximarse, para pequeñas oscilaciones, por una expresión cuadrática alrededor del punto de equilibrio. Esta propiedad explica el carácter universal del oscilador armónico como modelo físico.
+
+La energía total del sistema se expresa mediante el Hamiltoniano clásico,
+
+\[
+H(x,p) = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2,
+\]
+
+donde $p = m\dot{x}$ es el momento lineal. Esta expresión será el punto de partida para la formulación cuántica del problema, en la que las variables dinámicas se promoverán a operadores y la energía adquirirá una estructura discreta.
 \subsection{Hamiltoniano clásico del oscilador}
 \subsection{Solución clásica y significado físico}
 
