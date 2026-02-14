@@ -1,50 +1,189 @@
 \chapter{Desarrollo del Trabajo}
+En esta sección se desarrolla el tratamiento formal del oscilador armónico, partiendo de su formulación clásica como sistema dinámico fundamental y avanzando hacia su descripción cuántica. En primer lugar, se presenta el oscilador armónico clásico como base conceptual para la cuantización. Posteriormente, se construye el Hamiltoniano cuántico y se obtiene el espectro energético mediante el método algebraico basado en operadores de creación y aniquilación. A continuación, se analizan las autofunciones del sistema y se establece la equivalencia formal con el método analítico derivado de la ecuación de Schrödinger. Finalmente, se discuten algunas aplicaciones físicas relevantes que evidencian la importancia del modelo en distintos ámbitos de la física moderna.
+
+\section{El oscilador armónico clásico}
+El oscilador armónico clásico constituye el modelo paradigmático del movimiento periódico en física. Describe el comportamiento de una partícula sometida a una fuerza restauradora proporcional y opuesta a su desplazamiento respecto de una posición de equilibrio estable. Este sistema no solo aparece en el estudio de masas unidas a resortes ideales, sino que representa una aproximación universal para describir sistemas físicos en las proximidades de un mínimo de energía potencial.
+
+La importancia del oscilador armónico radica en su carácter general: cualquier sistema cuya energía potencial posea un mínimo estable puede aproximarse localmente mediante una función cuadrática. Esta propiedad explica su presencia en múltiples áreas de la física, desde la mecánica clásica hasta la teoría cuántica de campos. En particular, el formalismo matemático desarrollado para el oscilador armónico clásico servirá como punto de partida para su formulación cuántica, donde las variables dinámicas serán promovidas a operadores y la energía adquirirá una estructura discreta.
+
+\subsection{Descripción física y potencial armónico}
+En su forma más simple, el sistema puede representarse como una partícula de masa $m$ unida a un resorte ideal de constante elástica $k$. La dinámica está gobernada por la ley de Hooke,
+
+\[
+F = -kx,
+\]
+
+donde $x$ es el desplazamiento respecto del equilibrio. Aplicando la segunda ley de Newton se obtiene
+
+\[
+m\ddot{x} + kx = 0.
+\]
+
+Definiendo la frecuencia angular natural del sistema como
+
+\[
+\omega = \sqrt{\frac{k}{m}},
+\]
+
+la ecuación de movimiento adopta la forma
+
+\[
+\ddot{x} + \omega^2 x = 0,
+\]
+
+cuya solución describe un movimiento periódico.
+
+Desde el punto de vista energético, la fuerza restauradora deriva de un potencial cuadrático
+
+\[
+V(x) = \frac{1}{2} k x^2 = \frac{1}{2} m\omega^2 x^2,
+\]
+
+cuya forma parabólica caracteriza al oscilador armónico. Más generalmente, cualquier potencial físico $V(x)$ con un mínimo estable puede aproximarse, para pequeñas oscilaciones, por una expresión cuadrática alrededor del punto de equilibrio. Esta propiedad explica el carácter universal del oscilador armónico como modelo físico.
+
+La energía total del sistema se expresa mediante el Hamiltoniano clásico,
+
+\[
+H(x,p) = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2,
+\]
+
+donde $p = m\dot{x}$ es el momento lineal. Esta expresión será el punto de partida para la formulación cuántica del problema, en la que las variables dinámicas se promoverán a operadores y la energía adquirirá una estructura discreta.
+\subsection{Hamiltoniano clásico del oscilador}
+
+El oscilador armónico clásico puede describirse de manera natural dentro del formalismo hamiltoniano. 
+La energía total del sistema se compone de energía cinética y energía potencial,
+
+\[
+E = T + V = \frac{p^2}{2m} + \frac{1}{2}k x^2,
+\]
+
+donde $p = m\dot{x}$ es el momento lineal.
+
+Introduciendo la frecuencia angular $\omega = \sqrt{k/m}$, el Hamiltoniano del sistema adopta la forma
+
+\[
+H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2.
+\]
+
+Este Hamiltoniano representa la función energía del sistema y genera la dinámica a través de las ecuaciones canónicas de Hamilton,
+
+\[
+\dot{x} = \frac{\partial H}{\partial p}, 
+\qquad
+\dot{p} = -\frac{\partial H}{\partial x}.
+\]
+
+De estas ecuaciones se recupera directamente la ecuación diferencial del movimiento armónico,
+
+\[
+\ddot{x} + \omega^2 x = 0.
+\]
+
+La formulación hamiltoniana resulta especialmente importante, pues será el punto de partida para la transición al tratamiento cuántico.
+
+\subsection{Solución clásica y significado físico}
+
+La ecuación de movimiento del oscilador armónico clásico,
+
+\[
+\ddot{x} + \omega^2 x = 0,
+\]
+
+es una ecuación diferencial lineal cuya solución general es
+
+\[
+x(t) = A \cos(\omega t) + B \sin(\omega t),
+\]
+
+donde $A$ y $B$ dependen de las condiciones iniciales. 
+Equivalentemente,
+
+\[
+x(t) = C \cos(\omega t + \phi),
+\]
+
+siendo $C$ la amplitud y $\phi$ la fase inicial.
+
+El movimiento es periódico, con período
+
+\[
+T = \frac{2\pi}{\omega},
+\]
+
+y frecuencia angular $\omega = \sqrt{k/m}$. 
+La energía total del sistema permanece constante,
+
+\[
+E = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2,
+\]
+
+intercambiándose continuamente entre energía cinética y potencial.
+
+Desde el punto de vista físico, el oscilador armónico describe pequeñas oscilaciones alrededor de una posición de equilibrio estable. 
+Dado que cualquier potencial suave puede aproximarse por una función cuadrática en las cercanías de un mínimo, el oscilador armónico constituye una aproximación universal para sistemas físicos sometidos a pequeñas perturbaciones.
+
 \section{Solución del oscilador armónico cuántico}
 	
-	El oscilador armónico cuántico es uno de los pocos sistemas cuánticos con solución analítica exacta. En esta sección derivaremos tanto el espectro de energía como las autofunciones completas utilizando dos métodos complementarios: el método analítico de \cite{schrodinger1926b} (ecuación diferencial)  y el método algebraico de \cite{dirac1930} (operadores escalera). La equivalencia de ambos métodos valida la consistencia interna de la mecánica cuántica y demuestra que formalismos aparentemente diferentes describen la misma física subyacente.
+La transición del oscilador armónico clásico al tratamiento cuántico se realiza mediante la promoción de las variables dinámicas clásicas a operadores que actúan sobre un espacio de estados, de acuerdo con los postulados fundamentales de la mecánica cuántica formulados por Schrödinger \citep{schrodinger1926a} y la estructura algebraica introducida por Heisenberg \citep{heisenberg1925} y desarrollada sistemáticamente por Born y Jordan \citep{born1925, bornheisenberg1926}. 
+
+En el marco cuántico, la posición $x$ y el momento $p$ dejan de ser magnitudes numéricas y pasan a representarse mediante operadores hermíticos que satisfacen la relación de conmutación canónica
+
+\[
+[\hat{x},\hat{p}] = i\hbar,
+\]
+
+la cual constituye el fundamento estructural de la teoría cuántica \citep{bornheisenberg1926}. Esta modificación altera profundamente la estructura matemática del problema y conduce, de manera natural, a un espectro energético discreto.
+
+El oscilador armónico cuántico es, además, uno de los pocos sistemas que admiten solución analítica exacta. En lo que sigue se derivarán tanto el espectro de energía como las autofunciones completas mediante dos enfoques complementarios: el método algebraico introducido por Dirac \citep{dirac1930}, basado en operadores de creación y aniquilación, y el método analítico diferencial derivado de la ecuación de Schrödinger \citep{schrodinger1926b}. La equivalencia de ambos procedimientos constituye una validación explícita de la consistencia interna de la mecánica cuántica, demostrando que formalismos aparentemente distintos describen la misma estructura física subyacente.
+
 	
-	\subsection{Planteamiento del problema}
+\subsection{Planteamiento del problema}
 	
-	Buscamos resolver la ecuación de Schrödinger independiente del tiempo \citep{schrodinger1926a}:
+Buscamos resolver la ecuación de Schrödinger independiente del tiempo \citep{schrodinger1926a}:
 	
-	\begin{equation}
-		\hat{H}\psi(x) = E\psi(x)
-	\end{equation}
+\begin{equation}
+	\hat{H}\psi(x) = E\psi(x)
+\end{equation}
 	
-	donde el hamiltoniano para una partícula de masa $m$ en un potencial armónico de frecuencia angular $\omega$ es:
+donde el hamiltoniano para una partícula de masa $m$ en un potencial armónico de frecuencia angular $\omega$ es:
 	
-	\begin{equation}
-		\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + \frac{1}{2}m\omega^2 x^2
-	\end{equation}
+\begin{equation}
+    \hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + \frac{1}{2}m\omega^2 x^2
+\end{equation}
 	
-	Esta forma del hamiltoniano combina el operador de energía cinética cuántico con el potencial clásico armónico $V(x) = \frac{1}{2}m\omega^2 x^2$ derivado de la ley de \cite{hooke1678}.
+Esta forma del hamiltoniano combina el operador de energía cinética cuántico con el potencial armónico clásico 
+\(
+V(x) = \frac{1}{2}m\omega^2 x^2,
+\)
+correspondiente a una fuerza restauradora lineal \(F=-kx\), característica del oscilador armónico clásico.
+
 	
-	Explícitamente, debemos resolver:
-	
-	\begin{equation}
-		-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2 x^2 \psi(x) = E\psi(x)
-		\label{eq:schrodinger_oac}
-	\end{equation}
-	
-	\textbf{Condiciones de frontera:} Para que $\psi(x)$ sea normalizable y represente un estado físico, requerimos:
-	
-	\begin{equation}
-		\lim_{x \to \pm\infty} \psi(x) = 0
-	\end{equation}
-	
-	y
-	
-	\begin{equation}
-		\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1
-	\end{equation}
-	
-	\textbf{Objetivo:} Encontrar:
-	\begin{enumerate}
-		\item Los valores de energía $E_n$ permitidos (espectro)
-		\item Las funciones de onda $\psi_n(x)$ correspondientes (autofunciones)
-	\end{enumerate}
-	
-	Estos dos elementos constituyen la solución completa del problema cuántico.
+Explícitamente, debemos resolver:
+
+\begin{equation}
+    -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2 x^2 \psi(x) = E\psi(x)
+    \label{eq:schrodinger_oac}
+\end{equation}
+
+\textbf{Condiciones de frontera:} Para que $\psi(x)$ sea normalizable y represente un estado físico, requerimos:
+
+\begin{equation}
+    \lim_{x \to \pm\infty} \psi(x) = 0
+\end{equation}
+
+y
+
+\begin{equation}
+    \int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1
+\end{equation}
+
+\textbf{Objetivo:} Encontrar:
+\begin{enumerate}
+    \item Los valores de energía $E_n$ permitidos (espectro)
+    \item Las funciones de onda $\psi_n(x)$ correspondientes (autofunciones)
+\end{enumerate}
+
+Estos dos elementos constituyen la solución completa del problema cuántico.
 	
 	
 \subsection{Solución algebraica mediante operadores}
@@ -75,7 +214,7 @@ Podemos despejar estas relaciones para expresar $\hat{x}$ y $\hat{p}$ en términ
 	\hat{p} &= i\sqrt{\frac{m\omega\hbar}{2}}(\hat{a}^\dagger - \hat{a})
 \end{align}
 
-\subsubsection{Relación de conmutación fundamental}
+\subsubsection{Álgebra bosónica y relación de conmutación fundamental}
 
 De la relación de conmutación canónica de  \cite{born1925} $[\hat{x}, \hat{p}] = i\hbar$, derivamos (ver Apéndice~\ref{sec:born1925}):
 
@@ -108,7 +247,8 @@ el hamiltoniano se escribe:
 	\label{eq:hamiltoniano_factorizado}
 \end{equation}
 
-Esta factorización fue uno de los logros fundamentales del formalismo de \cite{dirac1930}.
+Esta factorización constituye uno de los resultados más importantes del formalismo algebraico introducido por Dirac \citep{dirac1930}.
+
 
 \subsubsection{Derivación algebraica del espectro}
 Buscamos estados con número definido de cuantos. Estos son \textbf{autoestados} del operador número $\hat{N}$: estados que permanecen iguales (salvo un factor numérico) cuando $\hat{N}$ actúa sobre ellos.
@@ -202,8 +342,8 @@ La acción precisa de los operadores es (ver Apéndice~\ref{sec:normalizacion1})
 
 
 
-\subsection{Propiedades de las autofunciones}
 
+\subsection{Autofunciones del oscilador armónico en representación de posición}
 \subsubsection{Autofunciones del oscilador armónico}
 
 Los autoestados $|n\rangle$ obtenidos en la sección anterior son vectores abstractos en el espacio de Hilbert. Para calcular distribuciones de probabilidad y valores esperados de observables, necesitamos las \textbf{autofunciones} $\psi_n(x)$, que son las representaciones concretas de estos estados en el espacio de posición:
@@ -325,7 +465,7 @@ Función par con dos nodos en $x = \pm\sqrt{\hbar/(2m\omega)}$.\\
 
 	
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"funciones de onda"}
 	\caption{Ejemplos de funciones de onda $\psi_0, \psi_1, \psi_2, \psi_3$. Fuente propia}
@@ -334,7 +474,7 @@ Función par con dos nodos en $x = \pm\sqrt{\hbar/(2m\omega)}$.\\
 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"densidad de onda"}
 	\caption{Ejemplos de densidades de probaiblidad $|\Psi_n|$ }
@@ -342,9 +482,11 @@ Función par con dos nodos en $x = \pm\sqrt{\hbar/(2m\omega)}$.\\
 \end{figure}
 
 
-\subsection{Equivalencia de ambos métodos}
 
-Los métodos analítico y algebraico son completamente equivalentes, representando dos perspectivas complementarias del mismo sistema físico. La equivalencia fue demostrada explícitamente por \cite{schrodinger1926c} poco después de que \cite{dirac1925} introdujera el formalismo de operadores.
+\subsection{Equivalencia entre el método analítico y el método algebraico}
+
+Los métodos analítico y algebraico constituyen formulaciones matemáticamente equivalentes del mismo sistema físico. La identificación de esta equivalencia marcó uno de los hitos fundamentales en la consolidación de la mecánica cuántica, al demostrarse que la mecánica ondulatoria de Schrödinger y la mecánica matricial desarrollada por Heisenberg, Born y Jordan describen de manera consistente la misma estructura dinámica \citep{heisenberg1925, born1925, bornheisenberg1926, schrodinger1926a, schrodinger1926b}.
+
 
 \subsubsection{Estado fundamental: comparación}
 
@@ -382,7 +524,7 @@ En representación de posición, el operador $\hat{a}^\dagger$ actúa como \cite
 	\hat{a}^\dagger \to \sqrt{\frac{m\omega}{2\hbar}}\left(x - \frac{\hbar}{m\omega}\frac{d}{dx}\right)
 \end{equation}
 
-Aplicando $(\hat{a}^\dagger)^n$ a $\psi_0(x)$ genera polinomios multiplicando la gaussiana, que son precisamente los polinomios de Hermite multiplicados por la constante apropiada \cite{sakurai2020}.
+Aplicando $(\hat{a}^\dagger)^n$ a $\psi_0(x)$ genera polinomios multiplicando la gaussiana, que son precisamente los polinomios de Hermite multiplicados por la constante apropiada \citep{sakurai2020}.
 
 \subsubsection{Interpretación física}
 
@@ -400,7 +542,8 @@ Aplicando $(\hat{a}^\dagger)^n$ a $\psi_0(x)$ genera polinomios multiplicando la
 	\item No requiere resolver ecuaciones diferenciales
 	\item Se generaliza fácilmente a otros sistemas
 	\item Lenguaje natural para describir excitaciones (fonones, fotones) en sistemas de muchos cuerpos
-	\item Fundamento de circuit QED y códigos bosónicos \citep{blais2021}
+	\item Lenguaje natural para describir excitaciones (fonones, fotones) en sistemas de muchos cuerpos y en teorías cuánticas de campos
+
 \end{itemize}
 
 \begin{table}[h]
@@ -423,5 +566,14 @@ Aplicando $(\hat{a}^\dagger)^n$ a $\psi_0(x)$ genera polinomios multiplicando la
 
 
 A lo largo de esta sección hemos derivado completamente el espectro de energía $E_n = \hbar\omega(n + \frac{1}{2})$ y las autofunciones $\psi_n(x)$ del oscilador armónico cuántico mediante el método desarrollado por \cite{dirac1930} y entendimos las equivalencias con el método desarrollado por \cite{schrodinger1926b}. La equivalencia matemática de ambos enfoques confirma la consistencia interna de la mecánica cuántica y demuestra que diferentes formalismos pueden describir el mismo sistema físico. Esta dualidad ha sido fundamental en el desarrollo de la física cuántica moderna, desde la teoría cuántica de campos hasta las aplicaciones contemporáneas en computación cuántica.
-	
-	
+
+
+
+
+
+\section{Aplicaciones físicas del oscilador armónico cuántico}
+\subsection{Vibraciones atómicas y moleculares}
+
+\subsection{Fonones y vibraciones colectivas en sólidos}
+
+\subsection{Osciladores cuánticos como modos bosónicos fundamentales}

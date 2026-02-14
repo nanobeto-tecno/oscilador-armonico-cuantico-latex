@@ -196,8 +196,121 @@ H(x,p) = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2,
 \]
 
 donde $p = m\dot{x}$ es el momento lineal. Esta expresión será el punto de partida para la formulación cuántica del problema, en la que las variables dinámicas se promoverán a operadores y la energía adquirirá una estructura discreta.
+\subsection{Descripción física y potencial armónico}
+En su forma más simple, el sistema puede representarse como una partícula de masa $m$ unida a un resorte ideal de constante elástica $k$. La dinámica está gobernada por la ley de Hooke,
+
+\[
+F = -kx,
+\]
+
+donde $x$ es el desplazamiento respecto del equilibrio. Aplicando la segunda ley de Newton se obtiene
+
+\[
+m\ddot{x} + kx = 0.
+\]
+
+Definiendo la frecuencia angular natural del sistema como
+
+\[
+\omega = \sqrt{\frac{k}{m}},
+\]
+
+la ecuación de movimiento adopta la forma
+
+\[
+\ddot{x} + \omega^2 x = 0,
+\]
+
+cuya solución describe un movimiento periódico.
+
+Desde el punto de vista energético, la fuerza restauradora deriva de un potencial cuadrático
+
+\[
+V(x) = \frac{1}{2} k x^2 = \frac{1}{2} m\omega^2 x^2,
+\]
+
+cuya forma parabólica caracteriza al oscilador armónico. Más generalmente, cualquier potencial físico $V(x)$ con un mínimo estable puede aproximarse, para pequeñas oscilaciones, por una expresión cuadrática alrededor del punto de equilibrio. Esta propiedad explica el carácter universal del oscilador armónico como modelo físico.
+
+La energía total del sistema se expresa mediante el Hamiltoniano clásico,
+
+\[
+H(x,p) = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2,
+\]
+
+donde $p = m\dot{x}$ es el momento lineal. Esta expresión será el punto de partida para la formulación cuántica del problema, en la que las variables dinámicas se promoverán a operadores y la energía adquirirá una estructura discreta.
 \subsection{Hamiltoniano clásico del oscilador}
+
+El oscilador armónico clásico puede describirse de manera natural dentro del formalismo hamiltoniano. 
+La energía total del sistema se compone de energía cinética y energía potencial,
+
+\[
+E = T + V = \frac{p^2}{2m} + \frac{1}{2}k x^2,
+\]
+
+donde $p = m\dot{x}$ es el momento lineal.
+
+Introduciendo la frecuencia angular $\omega = \sqrt{k/m}$, el Hamiltoniano del sistema adopta la forma
+
+\[
+H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2.
+\]
+
+Este Hamiltoniano representa la función energía del sistema y genera la dinámica a través de las ecuaciones canónicas de Hamilton,
+
+\[
+\dot{x} = \frac{\partial H}{\partial p}, 
+\qquad
+\dot{p} = -\frac{\partial H}{\partial x}.
+\]
+
+De estas ecuaciones se recupera directamente la ecuación diferencial del movimiento armónico,
+
+\[
+\ddot{x} + \omega^2 x = 0.
+\]
+
+La formulación hamiltoniana resulta especialmente importante, pues será el punto de partida para la transición al tratamiento cuántico.
+
 \subsection{Solución clásica y significado físico}
+
+La ecuación de movimiento del oscilador armónico clásico,
+
+\[
+\ddot{x} + \omega^2 x = 0,
+\]
+
+es una ecuación diferencial lineal cuya solución general es
+
+\[
+x(t) = A \cos(\omega t) + B \sin(\omega t),
+\]
+
+donde $A$ y $B$ dependen de las condiciones iniciales. 
+Equivalentemente,
+
+\[
+x(t) = C \cos(\omega t + \phi),
+\]
+
+siendo $C$ la amplitud y $\phi$ la fase inicial.
+
+El movimiento es periódico, con período
+
+\[
+T = \frac{2\pi}{\omega},
+\]
+
+y frecuencia angular $\omega = \sqrt{k/m}$. 
+La energía total del sistema permanece constante,
+
+\[
+E = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2,
+\]
+
+intercambiándose continuamente entre energía cinética y potencial.
+
+Desde el punto de vista físico, el oscilador armónico describe pequeñas oscilaciones alrededor de una posición de equilibrio estable. 
+Dado que cualquier potencial suave puede aproximarse por una función cuadrática en las cercanías de un mínimo, el oscilador armónico constituye una aproximación universal para sistemas físicos sometidos a pequeñas perturbaciones.
 
 \section{Formulación cuántica del oscilador armónico}
 \subsection{Hamiltoniano cuántico}
