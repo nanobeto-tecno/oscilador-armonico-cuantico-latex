@@ -8,44 +8,42 @@ La importancia del oscilador armónico radica en su carácter general: cualquier
 
 \subsection{Descripción física y potencial armónico}
 En su forma más simple, el sistema puede representarse como una partícula de masa $m$ unida a un resorte ideal de constante elástica $k$. La dinámica está gobernada por la ley de Hooke,
-
-\[
+\begin{equation}
 F = -kx,
-\]
-
+\end{equation}
 donde $x$ es el desplazamiento respecto del equilibrio. Aplicando la segunda ley de Newton se obtiene
 
-\[
+\begin{equation}
 m\ddot{x} + kx = 0.
-\]
+\end{equation}
 
 Definiendo la frecuencia angular natural del sistema como
 
-\[
+\begin{equation}
 \omega = \sqrt{\frac{k}{m}},
-\]
+\end{equation}
 
 la ecuación de movimiento adopta la forma
 
-\[
+\begin{equation}
 \ddot{x} + \omega^2 x = 0,
-\]
+\end{equation}
 
 cuya solución describe un movimiento periódico.
 
 Desde el punto de vista energético, la fuerza restauradora deriva de un potencial cuadrático
 
-\[
+\begin{equation}
 V(x) = \frac{1}{2} k x^2 = \frac{1}{2} m\omega^2 x^2,
-\]
+\end{equation}
 
 cuya forma parabólica caracteriza al oscilador armónico. Más generalmente, cualquier potencial físico $V(x)$ con un mínimo estable puede aproximarse, para pequeñas oscilaciones, por una expresión cuadrática alrededor del punto de equilibrio. Esta propiedad explica el carácter universal del oscilador armónico como modelo físico.
 
 La energía total del sistema se expresa mediante el Hamiltoniano clásico,
 
-\[
+\begin{equation}
 H(x,p) = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2,
-\]
+\end{equation}
 
 donde $p = m\dot{x}$ es el momento lineal. Esta expresión será el punto de partida para la formulación cuántica del problema, en la que las variables dinámicas se promoverán a operadores y la energía adquirirá una estructura discreta.
 \subsection{Hamiltoniano clásico del oscilador}
@@ -53,31 +51,31 @@ donde $p = m\dot{x}$ es el momento lineal. Esta expresión será el punto de par
 El oscilador armónico clásico puede describirse de manera natural dentro del formalismo hamiltoniano. 
 La energía total del sistema se compone de energía cinética y energía potencial,
 
-\[
+\begin{equation}
 E = T + V = \frac{p^2}{2m} + \frac{1}{2}k x^2,
-\]
+\end{equation}
 
 donde $p = m\dot{x}$ es el momento lineal.
 
 Introduciendo la frecuencia angular $\omega = \sqrt{k/m}$, el Hamiltoniano del sistema adopta la forma
 
-\[
+\begin{equation}
 H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2.
-\]
+\end{equation}
 
 Este Hamiltoniano representa la función energía del sistema y genera la dinámica a través de las ecuaciones canónicas de Hamilton,
 
-\[
+\begin{equation}
 \dot{x} = \frac{\partial H}{\partial p}, 
 \qquad
 \dot{p} = -\frac{\partial H}{\partial x}.
-\]
+\end{equation}
 
 De estas ecuaciones se recupera directamente la ecuación diferencial del movimiento armónico,
 
-\[
+\begin{equation}
 \ddot{x} + \omega^2 x = 0.
-\]
+\end{equation}
 
 La formulación hamiltoniana resulta especialmente importante, pues será el punto de partida para la transición al tratamiento cuántico.
 
@@ -85,37 +83,37 @@ La formulación hamiltoniana resulta especialmente importante, pues será el pun
 
 La ecuación de movimiento del oscilador armónico clásico,
 
-\[
+\begin{equation}
 \ddot{x} + \omega^2 x = 0,
-\]
+\end{equation}
 
 es una ecuación diferencial lineal cuya solución general es
 
-\[
+\begin{equation}
 x(t) = A \cos(\omega t) + B \sin(\omega t),
-\]
+\end{equation}
 
 donde $A$ y $B$ dependen de las condiciones iniciales. 
 Equivalentemente,
 
-\[
+\begin{equation}
 x(t) = C \cos(\omega t + \phi),
-\]
+\end{equation}
 
 siendo $C$ la amplitud y $\phi$ la fase inicial.
 
 El movimiento es periódico, con período
 
-\[
+\begin{equation}
 T = \frac{2\pi}{\omega},
-\]
+\end{equation}
 
 y frecuencia angular $\omega = \sqrt{k/m}$. 
 La energía total del sistema permanece constante,
 
-\[
+\begin{equation}
 E = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2,
-\]
+\end{equation}
 
 intercambiándose continuamente entre energía cinética y potencial.
 
@@ -128,9 +126,9 @@ La transición del oscilador armónico clásico al tratamiento cuántico se real
 
 En el marco cuántico, la posición $x$ y el momento $p$ dejan de ser magnitudes numéricas y pasan a representarse mediante operadores hermíticos que satisfacen la relación de conmutación canónica
 
-\[
+\begin{equation}
 [\hat{x},\hat{p}] = i\hbar,
-\]
+\end{equation}
 
 la cual constituye el fundamento estructural de la teoría cuántica \citep{bornheisenberg1926}. Esta modificación altera profundamente la estructura matemática del problema y conduce, de manera natural, a un espectro energético discreto.
 
@@ -155,7 +153,11 @@ Esta forma del hamiltoniano combina el operador de energía cinética cuántico 
 \(
 V(x) = \frac{1}{2}m\omega^2 x^2,
 \)
-correspondiente a una fuerza restauradora lineal \(F=-kx\), característica del oscilador armónico clásico.
+correspondiente a una fuerza restauradora lineal 
+\begin{equation}
+\(F=-kx\), 
+\end{equation}
+característica del oscilador armónico clásico.
 
 	
 Explícitamente, debemos resolver:
@@ -577,3 +579,12 @@ A lo largo de esta sección hemos derivado completamente el espectro de energía
 \subsection{Fonones y vibraciones colectivas en sólidos}
 
 \subsection{Osciladores cuánticos como modos bosónicos fundamentales}
+
+\subsection*{Los códigos bosónicos como estrategia líder de corrección de errores}
+
+Actualmente, la principal limitación que se encuentra en las computadoras cuánticas es la fragilidad de los estados cuánticos frente al ruido y la decoherencia. En las arquitecturas basadas en qubits de dos niveles, la corrección de errores requiere una gran cantidad de qubits físicos para codificar un qubit lógico, lo que supone un problema en cuanto a escalabilidad experimental. En este contexto, los códigos bosónicos surgen como una alternativa con potencial, ya que explotan directamente la estructura del oscilador armónico cuántico como espacio de codificación.
+
+Con este enfoque, los códigos bosónicos aprovechan el espacio de Hibert infinito de un solo modo bosónico para redundar información. \cite{cai2021bosonic} lo describen como:  
+"En comparación con los qubits, los osciladores armónicos o modos bosónicos         proporcionan una ruta alternativa hacia la computación cuántica universal. Los modos bosónicos son beneficiosos para el procesamiento de información cuántica en cuatro aspectos. Primero, un solo modo bosónico puede proporcionar un espacio de Hilbert infinitamente grande , que permite la codificación QEC simplemente extendiendo los números de excitación mientras se mantienen fijos los canales de ruido . Segundo, los modos bosónicos se pueden realizar con múltiples grados de libertad, por ejemplo, espacio, tiempo, frecuencia, polarización o sus combinaciones, y por lo tanto son escalables. Tercero, los modos bosónicos son convenientes para transferir información y también pueden interactuar fácilmente con muchos sistemas físicos diferentes, por lo tanto, son bloques de construcción inevitables en las redes cuánticas. Por último, los modos bosónicos son sistemas físicos fundamentales e indispensables que no pueden ser reemplazados por otros qubits o sistemas cuánticos de nivel finito. "
+
+La transición de qubits ruidosos a computadoras cuánticas eficientes se divide en tres etapas, en donde los códigos bosónicos son la piedra angular de los mismos. En la primera fase, se busca alcanzar la perfección en un solo qubit. Como demuestran \cite{campagne2020quantum} Campagne-Ibarcq et al. (2020) en su protocolo de estabilización de estados GKP, el principal problema es la propagación de errores desde el qubit ancilla hacia el qubit lógico durante la medición de paridad. El trabajo que sigue se concentrará en mejorar la coherencia del ancilla y el oscilador para aumentar la vida útil del qubit lógico. Ya en la segunda fase, el eje es encontrar la integración entre cúbits lógicos. Tal como se describe en el roadmap de Alice & Bob \cite{alice2024roadmap}, para el 2030 se buscará un control de microondas multiplexado y escalable, en donde se puedan ejecutar compuertas lógicas entre qubits vecinos sin que se vea afectada la coherencia. Esto supondrá el primer procesador que demuestre una verdadera ventaja cuántica en tareas de corrección de errores de fase. En la tercera fase se plantean las computadoras cuánticas resistentes a fallos a gran escala. En el roadmap de Alice & Bob, se comprometen a que para el año 2030, se lanzará Graphene, una computadora cuántica universal y tolerante a fallos, diseñada para resolver problemas del mundo real, ya que permitirá ejecutar algoritmos a gran escala. Esto beneficiará a áreas como finanzas, ciencias de materiales, machine learning, medicina, entre otras.
