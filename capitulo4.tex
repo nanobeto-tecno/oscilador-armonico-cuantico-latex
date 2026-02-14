@@ -270,7 +270,7 @@ Entonces, de la ecuación (\ref{eq:hamiltoniano_factorizado}):
 Por lo tanto, el autovalor de energía es:
 
 \begin{equation}
-	E_n = \hbar\omega\left(n + \frac{1}{2}\right)
+	E_n = \hbar\omega\left(n + \frac{1}{2}\right)\label{eq:espe_disc_ener}
 \end{equation}
 
 Ahora debemos determinar qué valores puede tomar $n$.\\
@@ -479,7 +479,7 @@ Función par con dos nodos en $x = \pm\sqrt{\hbar/(2m\omega)}$.\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"densidad de onda"}
-	\caption{Ejemplos de densidades de probaiblidad $|\Psi_n|$ }
+	\caption{Ejemplos de densidades de probabilidad $|\Psi_n|$ }
 	\label{fig:densidad-de-onda}
 \end{figure}
 
@@ -574,17 +574,63 @@ A lo largo de esta sección hemos derivado completamente el espectro de energía
 
 
 \section{Aplicaciones físicas del oscilador armónico cuántico}
+Antes de analizar aplicaciones específicas, es importante destacar que el oscilador armónico cuántico constituye uno de los modelos estructurales más universales de la física. En primera aproximación, cualquier sistema físico cercano a una posición de equilibrio puede describirse mediante un potencial armónico efectivo, lo que explica su aparición recurrente tanto en sistemas microscópicos como macroscópicos \citep{cohen1977, griffiths2018}.
+
+Su relevancia se manifiesta en varios aspectos fundamentales:
+
+\begin{itemize}
+    \item \textbf{Universalidad del modelo:} La expansión cuadrática del potencial alrededor del mínimo permite describir vibraciones moleculares, modos normales en sólidos y oscilaciones del campo electromagnético como osciladores armónicos cuantizados \citep{einstein1907, debye1912}.
+    
+    \item \textbf{Cuantización de excitaciones:} El formalismo algebraico basado en operadores de creación y aniquilación permite interpretar las excitaciones como cuantos bosónicos —fotones y fonones—, formalizados sistemáticamente en el marco operatorial de la mecánica cuántica \citep{dirac1930}.
+    
+    \item \textbf{Puente entre lo clásico y lo cuántico:} El modelo ilustra de manera explícita el principio de correspondencia, mostrando cómo el comportamiento clásico emerge en el límite de grandes números cuánticos \citep{ehrenfest1927}.
+    
+    \item \textbf{Base de tecnologías cuánticas modernas:} La descripción de modos bosónicos resulta esencial en la cuantización del campo electromagnético \citep{dirac1927} y constituye el fundamento conceptual de desarrollos contemporáneos en información cuántica.
+\end{itemize}
+
 \subsection{Vibraciones atómicas y moleculares}
+
+Uno de los primeros contextos físicos donde el oscilador armónico cuántico adquiere significado directo es en la descripción de vibraciones atómicas y moleculares. En una molécula diatómica, los átomos pueden oscilar alrededor de su posición de equilibrio debido a la interacción electromagnética que los une. En primera aproximación, el potencial efectivo puede expandirse en serie de Taylor alrededor del mínimo, y conservando el término cuadrático dominante se obtiene un potencial armónico de la forma
+
+\begin{equation}
+V(x) \approx \frac{1}{2} k x^2.
+\end{equation}
+
+En el tratamiento clásico, esta aproximación conduce a oscilaciones con frecuencia natural $\omega = \sqrt{k/m}$. Sin embargo, al aplicar la cuantización canónica, el sistema pasa a describirse mediante el hamiltoniano del oscilador armónico cuántico, cuyo espectro energético está dado por
+
+\begin{equation}
+E_n = \hbar \omega \left(n + \frac{1}{2}\right).
+\end{equation}
+
+Esta cuantización explica la estructura discreta observada en los espectros vibracionales moleculares y constituye una de las primeras aplicaciones físicas concretas del modelo. De hecho, la idea de describir vibraciones atómicas mediante osciladores cuantizados ya estaba implícita en el modelo de Einstein para el calor específico de los sólidos \citep{einstein1907}, donde cada átomo se modela como un oscilador armónico independiente. El tratamiento completo dentro del marco de la mecánica cuántica fue posteriormente formalizado en los desarrollos ondulatorios y algebraicos de la teoría \citep{schrodinger1926a, dirac1930}.
+
+Aunque en sistemas reales el potencial exacto no es estrictamente armónico y aparecen correcciones anharmónicas, la aproximación armónica describe con gran precisión los niveles vibracionales bajos y constituye la base del análisis espectroscópico molecular moderno \citep{griffiths2018, cohen1977}.
 
 \subsection{Fonones y vibraciones colectivas en sólidos}
 
+En sistemas extendidos, como los sólidos cristalinos, los átomos no vibran de forma independiente, sino que lo hacen colectivamente alrededor de sus posiciones de equilibrio en la red. En el régimen de pequeñas oscilaciones, el problema puede descomponerse en modos normales independientes, cada uno de los cuales se comporta matemáticamente como un oscilador armónico cuántico.
+
+La cuantización de estos modos normales conduce a la introducción del concepto de \textit{fonón}, entendido como el cuanto de vibración colectiva del cristal. Cada modo de frecuencia $\omega_{\mathbf{k}}$ posee un espectro energético
+
+\begin{equation}
+E_{n_{\mathbf{k}}} = \hbar \omega_{\mathbf{k}} \left(n_{\mathbf{k}} + \frac{1}{2}\right),
+\end{equation}
+
+donde $n_{\mathbf{k}}$ representa el número de excitaciones del modo correspondiente. Esta descripción permite interpretar fenómenos térmicos y de transporte en términos de excitaciones bosónicas.
+
+El modelo de Einstein \citep{einstein1907} constituye la primera aproximación cuantizada al problema del calor específico en sólidos, mientras que el modelo continuo desarrollado por Debye \citep{debye1912} introduce un espectro de frecuencias distribuido hasta una frecuencia de corte característica. Ambos enfoques descansan en la cuantización de osciladores armónicos y demuestran que las propiedades macroscópicas de los sólidos emergen directamente de la estructura cuántica de sus modos vibracionales.
+
+Desde el punto de vista formal, los fonones obedecen estadísticas bosónicas y pueden describirse mediante operadores de creación y aniquilación análogos a los introducidos en el tratamiento algebraico del oscilador armónico \citep{dirac1930}. Este paralelismo refuerza el carácter estructural del oscilador armónico como bloque fundamental en la descripción de grados de libertad cuánticos colectivos.
+
+
 \subsection{Osciladores cuánticos como modos bosónicos fundamentales}
 
-\subsection*{Los códigos bosónicos como estrategia líder de corrección de errores}
+\subsubsection{Códigos bosónicos y corrección de errores cuánticos}
 
-Actualmente, la principal limitación que se encuentra en las computadoras cuánticas es la fragilidad de los estados cuánticos frente al ruido y la decoherencia. En las arquitecturas basadas en qubits de dos niveles, la corrección de errores requiere una gran cantidad de qubits físicos para codificar un qubit lógico, lo que supone un problema en cuanto a escalabilidad experimental. En este contexto, los códigos bosónicos surgen como una alternativa con potencial, ya que explotan directamente la estructura del oscilador armónico cuántico como espacio de codificación.
+En la actualidad, uno de los principales desafíos en la computación cuántica es la fragilidad de los estados cuánticos frente al ruido y la decoherencia. En arquitecturas basadas en qubits de dos niveles, la implementación de corrección de errores cuánticos requiere una gran redundancia de qubits físicos para codificar un solo qubit lógico, lo que representa una limitación importante en términos de escalabilidad experimental.
 
-Con este enfoque, los códigos bosónicos aprovechan el espacio de Hibert infinito de un solo modo bosónico para redundar información. \cite{cai2021bosonic} lo describen como:  
-"En comparación con los qubits, los osciladores armónicos o modos bosónicos         proporcionan una ruta alternativa hacia la computación cuántica universal. Los modos bosónicos son beneficiosos para el procesamiento de información cuántica en cuatro aspectos. Primero, un solo modo bosónico puede proporcionar un espacio de Hilbert infinitamente grande , que permite la codificación QEC simplemente extendiendo los números de excitación mientras se mantienen fijos los canales de ruido . Segundo, los modos bosónicos se pueden realizar con múltiples grados de libertad, por ejemplo, espacio, tiempo, frecuencia, polarización o sus combinaciones, y por lo tanto son escalables. Tercero, los modos bosónicos son convenientes para transferir información y también pueden interactuar fácilmente con muchos sistemas físicos diferentes, por lo tanto, son bloques de construcción inevitables en las redes cuánticas. Por último, los modos bosónicos son sistemas físicos fundamentales e indispensables que no pueden ser reemplazados por otros qubits o sistemas cuánticos de nivel finito. "
+En este contexto, los códigos bosónicos surgen como una alternativa prometedora, ya que explotan directamente la estructura del oscilador armónico cuántico como espacio de codificación. A diferencia de los sistemas de dimensión finita, un modo bosónico posee un espacio de Hilbert infinito, lo que permite distribuir la información cuántica en múltiples niveles de excitación sin aumentar el número de sistemas físicos \citep{cai2021bosonic}.
 
-La transición de qubits ruidosos a computadoras cuánticas eficientes se divide en tres etapas, en donde los códigos bosónicos son la piedra angular de los mismos. En la primera fase, se busca alcanzar la perfección en un solo qubit. Como demuestran \cite{campagne2020quantum} Campagne-Ibarcq et al. (2020) en su protocolo de estabilización de estados GKP, el principal problema es la propagación de errores desde el qubit ancilla hacia el qubit lógico durante la medición de paridad. El trabajo que sigue se concentrará en mejorar la coherencia del ancilla y el oscilador para aumentar la vida útil del qubit lógico. Ya en la segunda fase, el eje es encontrar la integración entre cúbits lógicos. Tal como se describe en el roadmap de Alice & Bob \cite{alice2024roadmap}, para el 2030 se buscará un control de microondas multiplexado y escalable, en donde se puedan ejecutar compuertas lógicas entre qubits vecinos sin que se vea afectada la coherencia. Esto supondrá el primer procesador que demuestre una verdadera ventaja cuántica en tareas de corrección de errores de fase. En la tercera fase se plantean las computadoras cuánticas resistentes a fallos a gran escala. En el roadmap de Alice & Bob, se comprometen a que para el año 2030, se lanzará Graphene, una computadora cuántica universal y tolerante a fallos, diseñada para resolver problemas del mundo real, ya que permitirá ejecutar algoritmos a gran escala. Esto beneficiará a áreas como finanzas, ciencias de materiales, machine learning, medicina, entre otras.
+En particular, los códigos basados en estados de tipo GKP (Gottesman–Kitaev–Preskill) permiten codificar un qubit lógico en estados del oscilador armónico con simetrías específicas en el espacio de fase. Experimentos recientes han demostrado la estabilización activa de estos estados y la prolongación de la coherencia lógica mediante técnicas de corrección de errores continuas \citep{campagne2020quantum}.
+
+Desde el punto de vista conceptual, este enfoque reafirma el papel del oscilador armónico cuántico como sistema fundamental en la arquitectura de la teoría cuántica moderna: no solo describe vibraciones o modos de campo, sino que constituye el soporte físico directo de estrategias avanzadas de corrección de errores en plataformas superconductoras y de circuit QED.
