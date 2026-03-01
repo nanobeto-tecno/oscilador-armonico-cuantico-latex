@@ -1,6 +1,9 @@
 \documentclass[11pt,a4paper,spanish]{book}
 \usepackage{estilo_unir-1}
 
+%Con esto se evita que muestre note en las referencias de la bibliografía
+
+
 %Para agregar caracteres chinos
 \usepackage{CJKutf8}
 % Test2
@@ -11,13 +14,15 @@
 \usepackage{graphicx}
 \usepackage{float}
 
-
+%bibliografia en plantilla
+%\usepackage[hyphens]{url}
+%\usepackage[authoryear,round]{natbib}
 
 %---------------------------
 %título del trabajo y autor
 %---------------------------
 \title{Oscilador armónico cuántico}
-\author{Jacqueline Manriquez, Matías Rouby, Vicente Castro Mesa, Roberto Guerrero y Antonio Cueva}
+\author{Jacqueline Manriquez, Matías Rouby, Vicente Castro, Roberto Guerrero y Antonio Cueva}
 \date{09 de marzo de 2026}
 \profesor{Rodrigo Gil-Merino y Rubio}
 
@@ -29,6 +34,22 @@
 %---------------------------
 %---------------------------
 %---------------------------
+
+%bibliografía
+%\usepackage[hyphens]{url}
+%\usepackage[authoryear,round]{natbib}
+
+
+\usepackage{etoolbox}
+\makeatletter
+% Esto redefine el comando que genera la nota en la bibliografía para que sea invisible
+\AtBeginDocument{
+    \def\bibnote#1{} 
+    \pretocmd{\thebibliography}{\let\note\@gobble}{}{}
+}
+\makeatother
+
+
 \begin{document}
 \renewcommand{\listfigurename}{Índice de figuras}
 \renewcommand{\listtablename}{Índice de tablas}
@@ -50,35 +71,27 @@
 \chapter{Resumen}
 
 
-El presente trabajo desarrolla el cálculo cuántico completo del oscilador armónico utilizando principalmente el formalismo algebraico de operadores de creación y aniquilación introducido por Dirac. El objetivo es obtener explícitamente su espectro energético y sus autofunciones, así como analizar su relevancia como modelo fundamental de la mecánica cuántica. 
+El presente Trabajo desarrolla el cálculo cuántico completo del oscilador armónico utilizando principalmente el formalismo algebraico de operadores de creación y aniquilación introducido por Dirac. El objetivo es obtener explícitamente su espectro energético y sus autofunciones, así como analizar su relevancia como modelo fundamental de la mecánica cuántica. 
 
-A partir de las relaciones de conmutación canónica se factoriza el Hamiltoniano y se deriva el espectro discreto 
-\[
-E_n = \hbar \omega \left(n + \frac{1}{2}\right),
-\]
-evidenciando la existencia de energía de punto cero y niveles equiespaciados. Posteriormente, se establece la equivalencia con el método analítico basado en la ecuación de Schrödinger, mostrando que ambos formalismos conducen a las mismas autofunciones normalizadas en términos de polinomios de Hermite. 
+A partir de las relaciones de conmutación canónica se factoriza el hamiltoniano y se deriva un espectro energético discreto, caracterizado por niveles igualmente espaciados y la presencia de energía de punto cero. Posteriormente, se establece la equivalencia con el método analítico basado en la ecuación de Schrödinger, mostrando que ambos formalismos conducen a las mismas autofunciones normalizadas en términos de polinomios de Hermite. 
 
 Se concluye que el oscilador armónico cuántico constituye un modelo estructural de la teoría cuántica y un fundamento para la descripción de sistemas físicos y aplicaciones contemporáneas.
 
+\vspace{1cm}
 
-
-{\bf Palabras clave:} Oscilador armónico cuántico; Espectro energético cuantizado; Autofunciones del oscilador armónico; Operadores de creación y aniquilación; Energía de punto cero.
+{\bf Palabras clave:} oscilador armónico cuántico, espectro energético cuantizado, autofunciones del oscilador armónico, operadores de creación y aniquilación, energía de punto cero.
 
 
 \chapter{Abstract}
-This work develops the complete quantum calculation of the harmonic oscillator, primarily using the algebraic formalism of creation and annihilation operators introduced by Dirac. The objective is to explicitly obtain its energy spectrum and eigenfunctions, as well as to analyze its relevance as a fundamental model of quantum mechanics.
+This assessment develops the complete quantum calculation of the harmonic oscillator, primarily using the algebraic formalism of creation and annihilation operators introduced by Dirac. The objective is to explicitly obtain its energy spectrum and eigenfunctions, as well as to analyze its relevance as a fundamental model of quantum mechanics.
 
-Starting from the canonical commutation relations, the Hamiltonian is factorized and the discrete energy spectrum
-\[
-E_n = \hbar \omega \left(n + \frac{1}{2}\right),
-\]
-is derived, revealing the existence of zero-point energy and equally spaced levels. Subsequently, the equivalence with the analytical method based on the Schrödinger equation is established, showing that both formalisms lead to the same normalized eigenfunctions expressed in terms of Hermite polynomials.
+Starting from the canonical commutation relations, the hamiltonian is factorized and a discrete energy spectrum is derived, characterized by equally spaced levels and the presence of zero-point energy. Subsequently, the equivalence with the analytical method based on the Schrödinger equation is established, showing that both formalisms lead to the same normalized eigenfunctions expressed in terms of Hermite polynomials.
 
 It is concluded that the quantum harmonic oscillator constitutes a structural model of quantum theory and a foundation for the description of physical systems and contemporary applications.
 
+\vspace{1cm}
 
-
-{\bf Keywords:} Quantum harmonic oscillator; Quantized energy spectrum; Harmonic oscillator eigenfunctions; Creation and annihilation operators; Zero-point energy.
+\noindent{\bf Keywords:} quantum harmonic oscillator, quantized energy spectrum, harmonic oscillator eigenfunctions, creation and annihilation operators, zero-point energy.
 
 
 
@@ -91,22 +104,18 @@ It is concluded that the quantum harmonic oscillator constitutes a structural mo
 \include{capitulo4}
 \include{conclusiones}
 
-\cleardoublepage
+%\cleardoublepage
 \addcontentsline{toc}{chapter}{Bibliografía} 
 
-% Este bloque elimina las etiquetas [1] o [Lamport] para que se vea limpio como en la foto
-\makeatletter
-\def\@biblabel#1{}
-\makeatother
 
-\bibliographystyle{apalike} 
-
-\bibliography{referencias}
+%este esta ok
+%\bibliographystyle{apalike} 
+%\bibliography{referencias}
 
 
 
-
-
+\bibliographystyle{apalike} % Estilo compatible con natbib y autor-año
+\bibliography{referencias}   % Nombre de tu archivo .bib sin la extensión
 
 \appendix
 \include{apendices}
