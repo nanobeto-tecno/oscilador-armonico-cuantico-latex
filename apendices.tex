@@ -47,7 +47,36 @@ Obtenemos:
 	\boxed{[\hat{a}, \hat{a}^\dagger] = 1}
 \end{equation}	
 	
-	
+% APÉNDICE NUEVO: Factorización algebraica del hamiltoniano
+
+ \section{Factorización algebraica del hamiltoniano}
+ \label{sec:factorizacion}
+
+ Sustituyendo las expresiones de $\hat{x}$ y $\hat{p}$ en términos de los
+ operadores escalera:
+
+\begin{equation}
+ \hat{p}^2 = -\frac{m\omega\hbar}{2}(\hat{a}^\dagger - \hat{a})^2
+           = -\frac{m\omega\hbar}{2}(\hat{a}^{\dagger 2} - \hat{a}^\dagger\hat{a}
+             - \hat{a}\hat{a}^\dagger + \hat{a}^2)
+\end{equation}
+
+\begin{equation}
+ \hat{x}^2 = \frac{\hbar}{2m\omega}(\hat{a} + \hat{a}^\dagger)^2
+           = \frac{\hbar}{2m\omega}(\hat{a}^2 + \hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a} + \hat{a}^{\dagger 2})
+\end{equation}
+
+Sumando los términos $\frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2$ y usando $[\hat{a},\hat{a}^\dagger]=1$, es decir,
+$\hat{a}\hat{a}^\dagger = \hat{a}^\dagger\hat{a} + 1$:
+
+\begin{equation}
+\hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right)
+         = \hbar\omega\left(\hat{N} + \frac{1}{2}\right)
+\end{equation}
+
+ Los términos cruzados $\hat{a}^2$ y $\hat{a}^{\dagger 2}$ se cancelan,
+ y los términos $\hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a}
+ = 2\hat{N} + 1$ producen el resultado final.
 
 
 \section{Constantes de normalización: $\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle$} \label{sec:normalizacion1}
