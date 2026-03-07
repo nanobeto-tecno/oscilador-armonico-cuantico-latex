@@ -29,7 +29,7 @@ Desde el punto de vista energético, la fuerza restauradora puede derivarse de u
 
 Su forma parabólica caracteriza al oscilador armónico. Más generalmente, cualquier potencial físico $V(x)$ que posea un mínimo estable puede aproximarse, para pequeñas oscilaciones, mediante una expansión cuadrática alrededor del punto de equilibrio \citep{hamilton1834, schrodinger1926a}. Esta propiedad explica el carácter universal del oscilador armónico como modelo físico.
 
-A partir de esta descripción energética es posible formular el problema dentro del formalismo hamiltoniano, el cual proporciona un marco más general para describir la dinámica del sistema \citep{hamilton1834}. Este enfoque resulta especialmente relevante, pues el Hamiltoniano clásico servirá como punto de partida para el tratamiento cuántico, donde las variables dinámicas se reemplazan por operadores \citep{dirac1930}.
+A partir de esta descripción energética es posible formular el problema dentro del formalismo hamiltoniano, el cual proporciona un marco más general para describir la dinámica del sistema \citep{hamilton1834}. Este enfoque resulta especialmente relevante, pues el hamiltoniano clásico servirá como punto de partida para el tratamiento cuántico, donde las variables dinámicas se reemplazan por operadores \citep{dirac1930}.
 
 
 \subsection{Hamiltoniano clásico del oscilador}
@@ -47,7 +47,7 @@ el hamiltoniano del sistema adopta la forma
 	H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2
 \end{equation}
 
-Este Hamiltoniano representa la energía total del sistema y genera la dinámica a través de las ecuaciones canónicas de \cite{hamilton1834}
+Este hamiltoniano representa la energía total del sistema y genera la dinámica a través de las ecuaciones canónicas de \cite{hamilton1834}
 \vspace{-10pt}
 \begin{equation}
 	\dot{x} = \frac{\partial H}{\partial p}, 
@@ -180,8 +180,8 @@ Esta es la relación de conmutación bosónica fundamental: crear y luego aniqui
 
 \subsubsection{Factorización del hamiltoniano}
 
-Sustituyendo $\hat{x}$ y $\hat{p}$ en el hamiltoniano (ver Apéndice~\ref{sec:factorizacion}):
-\vspace{-10pt}	
+Sustituyendo $\hat{x}$ y $\hat{p}$ en el hamiltoniano  \citep{dirac1930} (ver Apéndice~\ref{sec:factorizacion}):
+\vspace{-5pt}	
 \begin{align}
 	\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2 
 	= \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right)
@@ -193,7 +193,7 @@ Definiendo el \textbf{operador número} \cite{dirac1930}: $\hat{N} = \hat{a}^\da
 	\label{eq:hamiltoniano_factorizado}
 \end{equation}
 
-Los autovalores de $\hat{N}$ cuentan el número de cuantos de energía presentes; el término $\frac{1}{2}\hbar\omega$ es la \emph{energía de punto cero}, que persiste incluso en el estado de menor energía posible.
+Los autovalores de $\hat{N}$ cuentan el número de cuantos de energía presentes; el término $\frac{1}{2}\hbar\omega$ es la \emph{energía de punto cero} \citep{planck1911}, que persiste incluso en el estado de menor energía posible.
 
 
 
@@ -241,7 +241,7 @@ donde $\sqrt{n!}$ es el factor de normalización que garantiza $\langle n | n \r
 \begin{figure}[h!]
 	\centering
 	\input{figure_niveles}
-	\caption[Niveles de energía del oscilador armónico cuántico.]{Niveles de energía del oscilador armónico cuántico. Los operadores $\hat{a}^\dagger$ (rojo) y $\hat{a}$ (azul) actúan como escaleras con las constantes de normalización indicadas. El espaciado uniforme es $\hbar\omega$ y la energía de punto cero es $\frac{1}{2}\hbar\omega$. Fuente: elaboración propia.}
+	\caption[Niveles de energía del oscilador armónico cuántico.]{Niveles de energía del oscilador armónico cuántico. Los operadores $\hat{a}^\dagger$ (rojo) y $\hat{a}$ (azul) actúan como escaleras con las constantes de normalización indicadas. El espaciado uniforme es $\hbar\omega$ y la energía de punto cero \citep{planck1911} es $\frac{1}{2}\hbar\omega$. Fuente: elaboración propia.}
 	\label{fig:niveles}
 \end{figure}
 
@@ -249,7 +249,7 @@ donde $\sqrt{n!}$ es el factor de normalización que garantiza $\langle n | n \r
 
 \subsubsection{Autofunciones del oscilador armónico}
 
-Los autoestados $|n\rangle$ son vectores abstractos en un espacio de Hilbert. Para calcular probabilidades necesitamos las \textbf{autofunciones} $\psi_n(x) = \langle x | n \rangle$, que representan la amplitud de probabilidad de encontrar la partícula en la posición $x$ cuando el oscilador está en el estado $n$.
+Los autoestados $|n\rangle$ son vectores abstractos en un espacio de Hilbert \citep{vonneumann1932}. Para calcular probabilidades necesitamos las \textbf{autofunciones} $\psi_n(x) = \langle x | n \rangle$ \citep{dirac1930}, que representan la amplitud de probabilidad \citep{born1926} de encontrar la partícula en la posición $x$ cuando el oscilador está en el estado $n$.
 
 La forma explícita, derivable resolviendo directamente la ecuación de \cite{schrodinger1926b}, es:
 \vspace{-10pt}
@@ -262,7 +262,7 @@ donde $H_n(\xi)$ es el polinomio de Hermite de grado $n$ (Apéndice~\ref{sec:her
 
 \subsubsection{Propiedades generales}
 
-\textbf{Ortonormalidad:}
+\textbf{Ortonormalidad:} \citep{dirac1930}
 \vspace{-10pt}
 \begin{equation}
 \int_{-\infty}^{\infty} \psi_n(x) \psi_m(x) \, dx = \delta_{nm}
@@ -272,7 +272,7 @@ Funciones de niveles distintos son ortogonales ($\delta_{nm}=0$ si $n\neq m$) y 
 
 \textbf{Paridad:} $\psi_n(-x) = (-1)^n \psi_n(x)$. Los estados con $n$ par son simétricos y los de $n$ impar, antisimétricos.
 
-\textbf{Nodos:} $\psi_n(x)$ tiene exactamente $n$ ceros, propiedad general de problemas unidimensionales.
+\textbf{Nodos:} $\psi_n(x)$ tiene exactamente $n$ ceros, propiedad general de problemas unidimensionales \citep{sturm1836}.
 
 \begin{figure}[h!]
 	\centering
@@ -338,7 +338,7 @@ Función par con dos nodos en $x = \pm\sqrt{\hbar/(2m\omega)}$.
 
 \subsection{Equivalencia entre el método analítico y el método algebraico}
 
-Los métodos de \cite{dirac1930} y \cite{schrodinger1926c} son matemáticamente equivalentes: describen el mismo sistema físico desde perspectivas diferentes. Esta equivalencia fue uno de los logros centrales de los años 1920s. La mecánica matricial de \cite{heisenberg1925} y la mecánica ondulatoria de \cite{schrodinger1926a, schrodinger1926b} parecían inicialmente teorías distintas; el formalismo de \cite{born1925, bornheisenberg1926} y el trabajo posterior demostraron que son representaciones equivalentes de la misma teoría.
+Los métodos de \cite{dirac1930} y \cite{schrodinger1926c} son matemáticamente equivalentes: describen el mismo sistema físico desde perspectivas diferentes. Esta equivalencia fue uno de los logros centrales de los años 1920s. La mecánica matricial de \cite{heisenberg1925} y la mecánica ondulatoria de \cite{schrodinger1926a, schrodinger1926b} parecían inicialmente teorías distintas; el formalismo de \cite{born1925, bornheisenberg1926} y el trabajo posterior demostraron que son representaciones equivalentes \citep{schrodinger1926equiv} de la misma teoría.
 
 \subsubsection{Estado fundamental: comparación}
 
@@ -348,13 +348,13 @@ Los métodos de \cite{dirac1930} y \cite{schrodinger1926c} son matemáticamente 
 	\psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} e^{-m\omega x^2/(2\hbar)}
 \end{equation}
 
-\textbf{Método algebraico:} La condición $\hat{a}|0\rangle = 0$ en representación de posición, donde $\hat{p} \to -i\hbar \frac{d}{dx}$, se traduce en:
+\textbf{Método algebraico:} La condición $\hat{a}|0\rangle = 0$ en representación de posición, donde $\hat{p} \to -i\hbar \frac{d}{dx}$ \citep{schrodinger1926a}, se traduce en:
 \begin{equation}
 	\sqrt{\frac{m\omega}{2\hbar}}\left(x + \frac{\hbar}{m\omega}\frac{d}{dx}\right)\psi_0(x) = 0
 \end{equation}
 
 Separando variables:
-\vspace{-10pt}
+\vspace{-5pt}
 \begin{equation}
 	\frac{d\psi_0}{dx} = -\frac{m\omega}{\hbar} x \psi_0 \quad \Longrightarrow \quad
 	\psi_0(x) = A\, e^{-m\omega x^2/(2\hbar)}
@@ -373,11 +373,12 @@ En representación de posición, el operador de creación actúa como \cite{dira
 Aplicando $n$ veces este operador diferencial sobre $\psi_0(x)$ se recuperan iterativamente todas las autofunciones $\psi_n(x)$, reproduciendo exactamente los resultados del método analítico.
 
 \subsubsection{Síntesis comparativa}
+La Tabla~\ref{tab:comparacion_metodos} resume las diferencias fundamentales entre ambos enfoques. Aunque parten de formulaciones distintas, los dos métodos son complementarios: el algebraico es más elegante y generalizable, mientras que el analítico ofrece funciones explícitas directamente interpretables en términos de probabilidad.\\
 
 \begin{table}[h]
 	\centering
-	\label{tab:comparacion_metodos}
-	\scalebox{0.7}{
+	
+	\scalebox{0.8}{
 		\begin{tabular}{p{4cm}p{5cm}p{5cm}}
 			\hline
 			\textbf{Aspecto} & \textbf{Método analítico} & \textbf{Método algebraico} \\
@@ -392,6 +393,7 @@ Aplicando $n$ veces este operador diferencial sobre $\psi_0(x)$ se recuperan ite
 		\end{tabular}
 	}
     \caption[Comparación entre el método analítico (Schrödinger) y algebraico (Dirac).]{Comparación entre el método analítico (Schrödinger) y algebraico (Dirac). Fuente: elaboración propia}
+    \label{tab:comparacion_metodos}
 \end{table}
 
 Hemos derivado completamente el espectro $E_n = \hbar\omega(n + 1/2)$ y las autofunciones $\psi_n(x)$ del oscilador armónico cuántico. La equivalencia de ambos métodos confirma la consistencia interna de la mecánica cuántica, y la dualidad entre los formalismos algebraico y analítico ha sido fundamental en el desarrollo de la física cuántica moderna.
